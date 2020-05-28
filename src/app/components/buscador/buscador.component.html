@@ -1,0 +1,169 @@
+
+<input type="checkbox" id="filtro-busqueda-button" checked style="display: none;">
+<div class="busqueda-container toggled">
+  <label for="filtro-busqueda-button" class="filtro-busqueda-button" title="Filtros">
+    <!--<span class="fa"></span>-->
+    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    <img src="assets/images/funnel.png" alt="Filtros" class="filtros-btn-icon" >
+    <!--<i class="fa fa-filter" aria-hidden="true"></i>--> 
+  </label>
+  <!--<button class="filtro-busqueda-button" >
+    <i class="fas fa-chevron-right"></i>
+  </button> -->
+  <div class="filtro-busqueda-panel">
+    <form #filtroBusquedaForm="ngForm" (ngSubmit)="buscarPorFiltros()">
+      <div class="filtro-busqueda-panel-campo filtro-tipo-busqueda">
+        <div class="filtro-busqueda-panel-label">¿Qué quieres buscar?</div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-group-black" [ngClass]="{'active': _buscadorService.filtros.tipoBusqueda == 'ofertas'}" (click)="_buscadorService.filtros.tipoBusqueda = 'ofertas'">
+              <input type="radio" [(ngModel)]="_buscadorService.filtros.tipoBusqueda" name="tipoBusqueda" value="ofertas" [checked]="_buscadorService.filtros.tipoBusqueda == 'ofertas'" > Ofertas <img src="assets/images/ofertas.png" alt="">
+            </label>                
+            <label class="btn btn-group-black" [ngClass]="{'active': _buscadorService.filtros.tipoBusqueda == 'artistas'}" (click)="_buscadorService.filtros.tipoBusqueda = 'artistas'">
+              <input type="radio" [(ngModel)]="_buscadorService.filtros.tipoBusqueda" name="tipoBusqueda" value="artistas" [checked]="_buscadorService.filtros.tipoBusqueda == 'ofertas'" > Artistas <img src="assets/images/banda_col.png" alt="">
+            </label>
+        </div>
+      </div>
+      <div class="filtro-busqueda-panel-campo filtro-titulo-oferta" *ngIf="_buscadorService.filtros.tipoBusqueda == 'ofertas'">
+        <div class="filtro-busqueda-panel-label"><img src="assets/images/titulo_oferta_icon.png" alt="Titulo de la oferta" class="filtro-icon"> Título de la oferta</div>
+        <input type="text" name="tituloOferta" placeholder="Ej: Busco guitarrista" [(ngModel)]="_buscadorService.filtros.tituloOferta" class="filtro-text">
+      </div>
+      <div class="filtro-busqueda-panel-campo" *ngIf="_buscadorService.filtros.tipoBusqueda == 'artistas'">
+        <div class="filtro-busqueda-panel-label"><img src="assets/images/nombre_artista_icon.png" alt="Nombre del artista" class="filtro-icon"> Nombre del artista</div>
+        <input type="text" name="nombreArtista" placeholder="Ej: Juan Pérez" [(ngModel)]="_buscadorService.filtros.nombreArtista" class="filtro-text">
+      </div>
+      <div class="filtro-busqueda-panel-campo" *ngIf="loaded">
+        <div class="filtro-busqueda-panel-label"><img src="assets/images/signs.png" alt="Lugar" class="filtro-icon"> Localidad:</div>
+        <ng-select [items]="localidadesObs | async"
+           [addTag]="false"
+           [multiple]="true"
+           [hideSelected]="true"
+           [minTermLength]="2"
+           [loading]="localidadesLoading"
+           typeToSearchText="Introduce 2 o más carácteres"
+           [typeahead]="localidadesInput"
+           [(ngModel)]="_buscadorService.filtros.localidades"
+           name="localidades"
+           placeholder="Ej: Alicante, Valencia, etc">
+        </ng-select>
+        <!--<select name="localidades" class="selectpicker" #localidades="ngModel" multiple data-live-search="true" title="Selecciona una localidad" [(ngModel)]="filtros.localidades">          
+          <option *ngFor="let localidad of localidadesId" [value]="localidad.nm">{{localidad.nm}}</option>
+        </select>-->
+      </div>
+      <div class="filtro-busqueda-panel-campo">
+        <div class="filtro-busqueda-panel-label"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="filtro-icon"> Estilo musical:</div>
+        <ng-select [items]="estilosMusicalesObs | async"
+           [addTag]="false"
+           [multiple]="true"
+           [hideSelected]="true"
+           [minTermLength]="2"
+           [loading]="estilosMusicalesLoading"
+           typeToSearchText="Introduce 2 o más carácteres"
+           [typeahead]="estilosMusicalesInput"
+           [(ngModel)]="_buscadorService.filtros.estilos"
+           name="estilos"
+           placeholder="Ej: Pop, Rock, etc">
+        </ng-select>
+        <!--<select name="estilos" class="selectpicker" #estilos="ngModel" multiple data-live-search="true" title="Selecciona un estilo de música" [(ngModel)]="filtros.estilos" >          
+          <option *ngFor="let estilo of estilosMusicalesAll" [value]="estilo">{{estilo}}</option>
+        </select>-->
+      </div>
+      <div class="filtro-busqueda-panel-campo">
+        <div class="filtro-busqueda-panel-label"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="filtro-icon"> Instrumentos:</div>
+        <ng-select [items]="instrumentosObs | async"
+           [addTag]="false"
+           [multiple]="true"
+           [hideSelected]="true"
+           [minTermLength]="2"
+           [loading]="instrumentosLoading"
+           typeToSearchText="Introduce 2 o más carácteres"
+           [typeahead]="instrumentosInput"
+           [(ngModel)]="_buscadorService.filtros.instrumentos"
+           name="instrumentos"
+           placeholder="Ej: Guitarra, Piano, etc">
+        </ng-select>
+        <!--<select name="instrumentos" class="selectpicker" #instrumentos="ngModel" multiple data-live-search="true" title="Selecciona un estilo de música" [(ngModel)]="filtros.instrumentos" >          
+          <option *ngFor="let instrumento of instrumentosAll" [value]="instrumento">{{instrumento}}</option>
+        </select>-->
+      </div>
+
+      <div class="filtro-busqueda-panel-campo">
+        <button type="submit" class="btn-basico">Aplicar filtros <i class="fa fa-search"></i></button>
+      </div>
+    </form>
+    
+  </div>
+  <div class="busqueda-resultados-container">
+
+    <div class="busqueda-resultados-header">
+      <div class="busqueda-cantidad" *ngIf="numResultados > 0">Hemos encontrado {{numResultados}} <span *ngIf="tipoBusqueda == 'artistas'">artistas</span><span *ngIf="tipoBusqueda == 'ofertas'">ofertas</span></div>
+      
+      <!--<div *ngIf="search" class="busqueda-cantidad">"{{search}}" - hemos encontrado {{numResultados}} <span *ngIf="tipoBusqueda == 'artistas'">artistas</span><span *ngIf="tipoBusqueda == 'ofertas'">ofertas</span></div>
+      <div *ngIf="tipoBusqueda == 'artistas'">
+        <button (click)="cambiarTipoDeBusqueda('ofertas')" class="btn-basico">Buscar ofertas <span *ngIf="search">con '{{search}}' </span> <i class="fa fa-search"></i></button>
+      </div>
+      <div *ngIf="tipoBusqueda == 'ofertas'">
+        <button (click)="cambiarTipoDeBusqueda('artistas')" class="btn-basico">Buscar artistas <span *ngIf="search">con '{{search}}' </span> <i class="fa fa-search"></i></button>
+      </div>-->
+    </div>
+
+    <div class="loader" *ngIf="loading">
+      <img src="assets/images/loader.svg" alt="loader">
+    </div>
+
+    <div class="busqueda-resultados" infiniteScroll [infiniteScrollDistance]="1"  (scrolled)="onScroll()">
+      <main id="main">
+        <section id="about" *ngIf="tipoBusqueda == 'ofertas'">
+          <div class="container">
+            <div class="row ofertas-container" *ngIf="numResultados > 0">
+              <div class="col-sm-12 col-md-6 col-lg-4 wow fadeInUp oferta-tarjeta-col" *ngFor="let resOferta of resultadosOferta; let i = index">
+                <oferta-card [oferta]="resOferta" [identity]="identity" [artista]="artista"></oferta-card>
+              </div>
+            </div>
+            <div *ngIf="numResultados <= 0" class="busqueda-noresults">
+              Lo sentimos... no hay ofertas que coincidan con la búsqueda :(
+            </div>
+          </div>
+        </section>
+        <section id="buscador" *ngIf="tipoBusqueda == 'artistas'">
+          <div class="container">
+            <div class="row artistas-container" *ngIf="numResultados > 0">
+              <div class="col-sm-6 col-md-4 col-lg-3 wow fadeInUp artista-tarjeta-col" *ngFor="let res of resultadosArtista;">
+                <artista-card [artista]="res"></artista-card>
+              </div>
+            </div>
+            
+            <div *ngIf="numResultados <= 0" class="busqueda-noresults">
+              Lo sentimos... no hay artistas que coincidan con la búsqueda :(
+            </div>
+          </div>
+        </section>  
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="modal-inscrito"></div>
+
+
+<!--Modal-->
+<div id="mymodalInscribirse" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" *ngIf="identity">
+        <p>Te has inscrito en la oferta</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" *ngIf="identity" class="btn btn-success" data-dismiss="modal">Perfecto</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+

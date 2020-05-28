@@ -1,0 +1,34 @@
+.oferta-tarjeta {
+    background: #fff;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 0;
+    height: 100%;
+}
+.oferta-imagen img {
+    height: 233px;
+    width: 100%;
+}
+.oferta-titulo {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000;
+    font-weight: 500;
+}
+.oferta-info {
+    padding: 10px 30px;
+}
+.oferta-info-item {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.oferta-icon {
+    width: 24px;
+    margin-right: 10px;
+}
+.oferta-botones {
+    padding: 10px 20px;
+}

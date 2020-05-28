@@ -1,0 +1,432 @@
+
+<main id="main">
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row artista-header">
+                        <div class="col-12 col-sm-5 col-md-3 artista-header-left">
+                            <img [src]="usuario.foto" alt="{{usuario.nombre}}" *ngIf="usuario.foto && usuario.foto != null && usuario.foto != 'null'">
+                            <img src="assets/images/profile.png" alt="{{usuario.nombre}}" *ngIf="!usuario.foto || usuario.foto == null || usuario.foto == 'null'">
+                            <div class="artista-nombre" title="{{usuario.nombre}}">
+                                {{usuario.nombre}}
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-7 col-md-9 artista-header-right">
+                            <div class="artista-info-title">Perfil</div>
+                            <div class="d-flex artista-info">
+                                <div class="p-2 flex-fill artista-info-item" *ngIf="usuario.email && usuario.email != 'null'"><i class="fa fa-envelope-o artista-icon" aria-hidden="true"></i> {{usuario.email}}</div>
+                                <div class="p-2 flex-fill artista-info-item" *ngIf="usuario.estilo && usuario.estilo != 'null'"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="artista-icon" > {{usuario.estilo}}</div>
+                                <div class="p-2 flex-fill artista-info-item" *ngIf="usuario.instrumentos && usuario.instrumentos != null"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="artista-icon"> {{usuario.instrumentos}}</div>
+                                <div class="p-2 flex-fill artista-info-item" *ngIf="usuario.ciudad && usuario.ciudad != 'null'"><img src="assets/images/signs.png" alt="Lugar" class="artista-icon"> {{usuario.ciudad}}</div>
+                            </div>
+                            <div class="artista-botones">
+                                <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#subirCancion"><i class="fa fa-upload"></i> Subir canción</button>
+                                <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#editarPerfil"><i class="fa fa-user"></i> Editar perfil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="artista-tabs">
+                        <div id="contenedor">
+                            <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                            <label for="tab-1" class="tab-label-1 label-perfil">Mis ofertas <img src="assets/images/ofertas.png" alt=""></label>
+                            
+                            <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                            <label for="tab-2" class="tab-label-2 label-perfil">Mis canciones <i class="fa fa-music" aria-hidden="true"></i></label>
+                            
+                            <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
+                            <label for="tab-3" class="tab-label-3 label-perfil">Mis enlaces <i class="fa fa-link" aria-hidden="true"></i></label>
+
+                                                    
+                            <div class="content">
+                                <div class="content-1">                                        
+                                    <table datatable [dtOptions]="dtOptionsOfertas" id="table-ofertas" [dtTrigger]="dtTrigger" class="table table-hover display responsive" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Titulo</th>
+                                            <th>Fecha evento</th>
+                                            <th>Estado</th>
+                                            <th>Sueldo</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of ofertas;let i = index">
+                                                <td>{{item.titulo}}</td>
+                                                <td>{{item.fechaEvento | date:'d/M/yyyy'}}</td>
+                                                <td>
+                                                    <div *ngIf="!aceptado(item)">En proceso</div>
+                                                    <div *ngIf="aceptado(item) && !asignada(item)">¡ACEPTADO!</div>
+                                                    <div *ngIf="asignada(item)">Asignada</div>
+                                                </td>
+                                                <td>{{item.sueldo}} €</td>
+                                                <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-tarjeta btn-secundario" (click)="aceptarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Confirmar</button></td>
+                                                <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-peligro btn-tarjeta" (click)="rechazarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Rechazar</button></td>
+                                                <td><button *ngIf="!aceptado(item)" class="btn-basico btn-tarjeta" (click)="verOferta(item._id)" ><i class="fa fa-eye"></i></button></td>
+                                                <td><button *ngIf="!aceptado(item)" class="btn-peligro btn-tarjeta" data-toggle="modal" data-target="#modalCancelar" (click)="precancelar(item,i,item.titulo)"><i class="fa fa-times"></i></button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--</div>-->
+                                <div class="content-2">
+                                    <table class="display responsive table-simple" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Titulo canción</th>
+                                                <th>Fecha de subida</th>
+                                                <th>Álbum</th>
+                                                <th>Estilo</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Cuando éramos</td>
+                                                <td>20/01/2020</td>
+                                                <td>Dulce ironía</td>
+                                                <td>Rock, Pop </td>
+                                                <td><button class="btn-basico btn-tarjeta" ><i class="fa fa-pencil-square-o"></i> Editar</button></td>
+                                                <td><button class="btn-peligro btn-tarjeta"><i class="fa fa-eye-slash"></i> Ocultar canción</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="content-3">
+                                    <table class="display responsive table-simple" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>URL del enlace</th>
+                                                <th>Fecha subida</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>http://youtube.com/Canal_del_usuario/video1</td>
+                                                <td>01/03/2020</td>
+                                                <td></td>
+                                                <td><button class="btn-peligro btn-tarjeta"><i class="fa fa-eye-slash"></i> Ocultar enlace</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--
+            <div class="perfil-container">
+                <div class="perfil-cabecera">
+                    <div class="row">
+                        <div class="col-12 perfil-titulo">
+                            <div class="perfil-titulo-left">
+                                <img [src]="usuario.foto" alt="{{usuario.nombre}}" *ngIf="usuario.foto && usuario.foto != null && usuario.foto != 'null'">
+                                <img src="assets/images/profile.png" alt="{{usuario.nombre}}" *ngIf="!usuario.foto || usuario.foto == null || usuario.foto == 'null'">
+                                <div class="artista-nombre" title="{{usuario.nombre}}">
+                                    {{usuario.nombre}}
+                                </div>
+                            </div>
+                            <div class="perfil-titulo-right">
+                                <div class="artista-info-title">Perfil</div>
+                                <div class="artista-info">
+                                    <div class="artista-info-item" *ngIf="usuario.email && usuario.email != 'null'"><i class="fa fa-envelope-o artista-icon" aria-hidden="true"></i> {{usuario.email}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.estilo && usuario.estilo != 'null'"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="artista-icon" > {{usuario.estilo}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.instrumentos && usuario.instrumentos != 'null'"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="artista-icon"> {{usuario.instrumentos}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.ciudad && usuario.ciudad != 'null'"><img src="assets/images/signs.png" alt="Lugar" class="artista-icon"> {{usuario.ciudad}}</div>
+                                </div>
+                                <div class="artista-botones">
+                                    <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#subirCancion"><i class="fa fa-upload"></i> Subir canción</button>
+                                    <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#editarPerfil"><i class="fa fa-user"></i> Editar perfil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--div class="col-12 col-sm-12 col-md-3 ">
+                            <!--div class="artista-tarjeta">
+                                <div class="img artista-imagen">
+                                    <img [src]="usuario.foto" alt="{{usuario.nombre}}" *ngIf="usuario.foto && usuario.foto != null && usuario.foto != 'null'">
+                                    <img src="assets/images/profile.png" alt="{{usuario.nombre}}" *ngIf="!usuario.foto || usuario.foto == null || usuario.foto == 'null'">
+                                </div>
+                                <div class="artista-nombre" title="{{usuario.nombre}}">
+                                    {{usuario.nombre}}
+                                </div>
+                                <div class="artista-info">
+                                    <div class="artista-info-item" *ngIf="usuario.email && usuario.email != 'null'"><i class="fa fa-envelope-o artista-icon" aria-hidden="true"></i> {{usuario.email}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.estilo && usuario.estilo != 'null'"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="artista-icon" > {{usuario.estilo}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.instrumentos && usuario.instrumentos != 'null'"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="artista-icon"> {{usuario.instrumentos}}</div>
+                                    <div class="artista-info-item" *ngIf="usuario.ciudad && usuario.ciudad != 'null'"><img src="assets/images/signs.png" alt="Lugar" class="artista-icon"> {{usuario.ciudad}}</div>
+                                </div>
+                                <div class="artista-botones">
+                                    <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#subirCancion"><i class="fa fa-upload"></i> Subir canción</button>
+                                    <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#editarPerfil"><i class="fa fa-user"></i> Editar perfil</button>
+                                </div>
+                            </div>
+                            <!--<div class="perfil-foto">
+                                <img [src]="usuario.foto" alt="{{usuario.nombre}}" *ngIf="usuario.foto && usuario.foto != null && usuario.foto != 'null'">
+                                <img src="assets/images/profile.png" alt="{{usuario.nombre}}" *ngIf="!usuario.foto || usuario.foto == null || usuario.foto == 'null'">
+                            </div>                            
+                            <div class="perfil-datos-item" *ngIf="usuario.email && usuario.email != 'null'">
+                                <i class="fa fa-envelope-o artista-icon" aria-hidden="true"></i> {{usuario.email}}
+                            </div>
+                            <div class="perfil-datos-item" *ngIf="usuario.estilo && usuario.estilo != 'null'">
+                                <img src="assets/images/heavy-metal.png" alt="Estilo musical" class="artista-icon" > {{usuario.estilo}}
+                            </div>
+                            <div class="perfil-datos-item" *ngIf="usuario.instrumentos && usuario.instrumentos != 'null'">
+                                <img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="artista-icon"> {{usuario.instrumentos}}
+                            </div>
+                            <div class="perfil-datos-item" *ngIf="usuario.ciudad && usuario.ciudad != 'null'">
+                                <img src="assets/images/signs.png" alt="Lugar" class="artista-icon"> {{usuario.ciudad}}
+                            </div>
+                            <div>
+                                <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#subirCancion"><i class="fa fa-upload"></i> Subir canción</button>
+                            </div>
+                            <div>
+                                <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#editarPerfil"><i class="fa fa-user"></i> Editar perfil</button>
+                            </div>-->
+                        <!--</div>-*->
+                        <div class="col-12 perfil-datos">
+                            <div id="contenedor">
+                                <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                                <label for="tab-1" class="tab-label-1 label-perfil" (click)="muestraOfertas()">Mis ofertas <img src="assets/images/ofertas.png" alt=""></label>
+                                
+                                <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                                <label for="tab-2" class="tab-label-2 label-perfil">Mis canciones <i class="fa fa-music" aria-hidden="true"></i></label>
+                                
+                                <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
+                                <label for="tab-3" class="tab-label-3 label-perfil">Mis enlaces <i class="fa fa-link" aria-hidden="true"></i></label>
+
+                                                        
+                                <div class="content">
+                                    <div class="content-1">                                        
+                                        <table datatable [dtOptions]="dtOptionsOfertas" [dtTrigger]="dtTrigger" class="table table-hover display responsive" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                                <th>Titulo</th>
+                                                <th>Fecha evento</th>
+                                                <th>Estado</th>
+                                                <th>Sueldo</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of ofertas;let i = index">
+                                                    <td>{{item.titulo}}</td>
+                                                    <td>{{item.fechaEvento | date:'d/M/yyyy'}}</td>
+                                                    <td *ngIf="!aceptado(item)">En proceso</td>
+                                                    <td *ngIf="aceptado(item) && !asignada(item)">¡ACEPTADO!</td>
+                                                    <td *ngIf="asignada(item)">Asignada</td>
+                                                    <td>{{item.sueldo}} €</td>
+                                                    <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-tarjeta btn-secundario" (click)="aceptarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Confirmar</button></td>
+                                                    <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-peligro btn-tarjeta" (click)="rechazarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Rechazar</button></td>
+                                                    <td><button *ngIf="!aceptado(item)" class="btn-basico btn-tarjeta" (click)="verOferta(item._id)" ><i class="fa fa-eye"></i></button></td>
+                                                    <td><button *ngIf="!aceptado(item)" class="btn-peligro btn-tarjeta" data-toggle="modal" data-target="#modalCancelar" (click)="precancelar(item,i,item.titulo)"><i class="fa fa-times"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--</div>-*->
+                                    <div class="content-2">
+                                        <table class="display responsive" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Titulo canción</th>
+                                                    <th>Fecha de subida</th>
+                                                    <th>Álbum</th>
+                                                    <th>Estilo</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Cuando éramos</td>
+                                                    <td>20/01/2020</td>
+                                                    <td>Dulce ironía</td>
+                                                    <td>Rock, Pop </td>
+                                                    <td><button class="btn-basico btn-tarjeta" ><i class="fa fa-pencil-square-o"></i> Editar</button></td>
+                                                    <td><button class="btn-peligro btn-tarjeta"><i class="fa fa-eye-slash"></i> Ocultar canción</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="content-3">
+                                        <table class="display responsive" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>URL del enlace</th>
+                                                    <th>Fecha subida</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>http://youtube.com/Canal_del_usuario/video1</td>
+                                                    <td>01/03/2020</td>
+                                                    <td></td>
+                                                    <td><button class="btn-peligro btn-tarjeta"><i class="fa fa-eye-slash"></i> Ocultar enlace</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </section>
+</main>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="subirCancion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¡Sube una canción!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-container">
+                    <div class="form-group">
+                    <label></label>
+                    <input autofocus type="text" name="titulo" placeholder="Titulo de la canción" class="form-control" id="titulo" required>
+                    </div>
+                    <div>
+                    <label></label>
+                    <input type="text"  name="estilo" placeholder="Estilo musical" class="form-control" id="estilo" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <label></label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+                        <input type="file" />
+                    </div>
+    
+                    <br>
+                    <br/>
+                    <button type="submit" class="btn btn-success btn-block" style="margin-bottom: 3%;">Subir canción</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editarPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edita tu perfil de artista</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-container" #nuevaofertaForm="ngForm" (ngSubmit)="editarPerfil()" >
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input autofocus type="text" #nombre="ngModel" name="nombre" placeholder="Nombre" [(ngModel)]="artistaEditar.nombre" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Localidad</label>
+                        <ng-select [items]="localidadesObs | async"
+                        [addTag]="false"
+                        [multiple]="false"
+                        [minTermLength]="2"
+                        [loading]="localidadesLoading"
+                        typeToSearchText="Introduce 2 o más carácteres"
+                        [typeahead]="localidadesInput"
+                        [(ngModel)]="artistaEditar.ciudad"
+                        name="ciudad"
+                        placeholder="Ej: Alicante, Valencia, etc"
+                        class="select-oscuro">
+                        </ng-select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estilo</label>
+                        <ng-select [items]="estilosMusicalesObs | async"
+                        [addTag]="false"
+                        [multiple]="true"
+                        [hideSelected]="true"
+                        [minTermLength]="2"
+                        [loading]="estilosMusicalesLoading"
+                        typeToSearchText="Introduce 2 o más carácteres"
+                        [typeahead]="estilosMusicalesInput"
+                        [(ngModel)]="artistaEditar.estilo"
+                        name="estilos"
+                        placeholder="Ej: Pop, Rock, etc"
+                        class="select-oscuro">
+                        </ng-select>
+                    </div>
+                    <div class="form-group">
+                        <label>Instrumentos</label>
+                        <ng-select [items]="instrumentosObs | async"
+                        [addTag]="false"
+                        [multiple]="true"
+                        [hideSelected]="true"
+                        [minTermLength]="2"
+                        [loading]="instrumentosLoading"
+                        typeToSearchText="Introduce 2 o más carácteres"
+                        [typeahead]="instrumentosInput"
+                        [(ngModel)]="artistaEditar.instrumentos"
+                        name="instrumentos"
+                        placeholder="Ej: Guitarra, Piano, etc"
+                        class="select-oscuro">
+                        </ng-select>
+                    </div>
+                    <br>
+                    <br/>
+                    <button type="submit" class="btn btn-basico btn-block" style="margin-bottom: 3%;">Guardar</button>
+                    </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-peligro" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalCancelar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Cancelar inscripción.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Deseas cancelar tu inscripción en {{this.itemCancelarNombre}}?</p>
+            <p>Podrás  volver a inscribirte en cualquier momento, siempre y cuando la oferta esté abierta.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Salir</button>
+            <button type="button" (click)="cancelarSolicitud()" class="btn btn-secondary" data-dismiss="modal">Cancelar inscripción</button>
+        </div>
+        </div>
+    </div>
+</div>

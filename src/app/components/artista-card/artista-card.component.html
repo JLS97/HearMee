@@ -1,0 +1,18 @@
+<div class="artista-tarjeta">
+ 
+    <div class="img artista-imagen">
+        <!--<img [src]="artista.foto" alt="{{artista.nombre}}" class="img-fluid" *ngIf="artista.foto && artista.foto != null">-->
+        <img src="assets/images/profile.png" alt="{{artista.nombre}}" class="img-fluid">
+    </div>
+    <div class="artista-nombre" title="{{artista.nombre}}">
+        {{artista.nombre}}
+    </div>
+    <div class="artista-info">
+        <div class="artista-info-item" *ngIf="artista.estilo && artista.estilo != 'null'"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="artista-icon" > {{artista.estilo}}</div>
+        <div class="artista-info-item" *ngIf="artista.instrumentos && artista.instrumentos != null"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="artista-icon"> Guitarra</div>
+        <div class="artista-info-item" *ngIf="artista.ciudad && artista.ciudad != 'null'"><img src="assets/images/signs.png" alt="Lugar" class="artista-icon"> {{artista.ciudad}}</div>
+    </div>
+    <div class="artista-botones">
+        <a class="btn-tarjeta btn-basico" [routerLink]="['/musico', artista._id]" target="_blank">Ver más <i class="fa fa-eye" aria-hidden="true"></i></a>
+    </div>
+</div>

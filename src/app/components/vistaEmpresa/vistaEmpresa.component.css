@@ -1,0 +1,39 @@
+/******************** VISTA EMPRESA ********************/
+.nombre-empresa{
+    text-align: center;
+    margin-bottom: 0.8em;
+    font-weight: 400;
+  }
+  .imagen-vistaempresa{
+   
+    width: 95%;
+  }
+  
+  .text-vistaempresa{
+    color: #000;
+    
+  }
+  .txt-empresa{
+    color: #000;
+  }
+  
+  .first2{
+    padding: 60px;
+  }
+  .second2{
+    padding:0;
+  }
+  .texto4{
+    font-size: 20px;
+    color: rgb(80, 79, 79);
+    margin-left: 2em;
+  }
+  .emp-text{
+    font-size: 18px;
+  }
+.empresa-container {
+  background: #fff;
+  padding: 20px 40px;
+  margin-top: 60px;
+  box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}

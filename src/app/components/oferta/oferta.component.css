@@ -1,0 +1,93 @@
+/************** OFERTA ************/
+.seccion{
+    color: rgb(139, 138, 138);
+    font-weight: bold;
+  }
+  .oferta-titulo{
+    color: rgb(95, 95, 95);
+    margin-top: 2em;
+  }
+  .imagen img{
+    width: 100%;
+    height: 400px;
+    display: block;
+    margin: auto;
+  }
+  .text-oferta{
+    color: #000;
+    margin-top: 3em;
+  }
+  .tabla{
+    background-color: #fff;
+  }
+  
+  .desc{
+    text-align: justify;
+   /* text-align: center;*/
+    max-width: 55em;
+    margin: auto;  
+    color: #000;
+    margin-top: 3em;
+  }
+  .desc-text{
+     margin: 0 auto;
+     text-align: justify;
+     display: flex;
+     vertical-align: middle;
+     font-size: 20px;
+    
+  }
+  .empresa{
+  text-align: justify;
+  /* text-align: center;*/
+  max-width: 55em;
+  margin: auto;  
+  }
+  .empresa-imagen{
+  float: left;
+  margin-top: 2em;
+  margin-right: 1em;
+  margin-left: 1em;
+  width:10em;
+  height:10em;
+  border-radius:150px;
+  }
+  .empresa-texto{
+  text-align: justify;
+  margin-top:1em;
+  margin-bottom: 2em;
+  color: #000;
+  }
+  .emp-text{
+    font-size: 18px;
+  }
+  .nombre-empresa{
+  color: #000;
+  }
+  .first {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 0 20px;
+  text-align: justify;
+  vertical-align: top;
+  width: 50%;
+  }
+  .second {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 0 30px;
+  text-align: justify;
+  vertical-align: top;
+  width: 50%;
+  }
+  
+  td.first {
+  border-right: 2px solid rgb(128, 128, 128)  ;
+  }
+
+  .oferta-container{
+    background: #fff;
+    padding: 20px 40px;
+    margin-top: 60px;
+    box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  }

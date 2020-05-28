@@ -1,0 +1,10 @@
+
+<app-navbar></app-navbar>
+
+<div class="main-container container-fluid">
+    <router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>
+
+<button [ngClass]="'btn-scroll-top'" *ngIf="showGoUpButton" (click)="scrollTop()"><i class="fa fa-chevron-up"></i></button>

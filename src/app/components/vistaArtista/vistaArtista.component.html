@@ -1,0 +1,166 @@
+  
+
+<main id="main">
+    <!--==========================
+  About Us Section
+============================-->
+    <section id="about">
+        <div class="container artista-container">
+            <a href="javascript:history.back()" class="btn-basico" ><i class="fa fa-arrow-left"></i> Volver Atrás</a>
+            
+            <table class="tabla1">
+                <tr>
+                    <td class="first1">
+           
+                        <div class="imagen1">  
+                            <img  class="imagen-vistaArtista" src="assets/img/hotel1.jpg" alt="">
+                                
+                        </div>
+                        
+                        <div class="text-vistaempresa">
+               
+                    <h3 class="texto4"> <i class="fa fa-map-marker" *ngIf="artista.ciudad"></i> {{artista.ciudad}}
+                        <br><br>
+                        <i class="fa fa-music" *ngIf="artista.estilos"> </i> <span *ngFor="let estilo of artista.estilos; let isLast=last">{{estilo}}{{isLast ? '' : ', '}}</span>
+                        
+                        <br><br>
+                        
+                        Valoracion:           <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                        <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                        <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                        <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                        <i class='fa fa-star'></i> (112)
+                        
+                    
+                    </h3>
+                   
+
+                    
+                     </div>
+                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                </td>
+                 <td class="second1">
+                     <br><br>
+                    <div class="empresa-texto1">
+                        <h3 class="nombre-empresa1">{{artista.nombre}}</h3>
+                        <h4>Descripción:</h4>
+                        <!--(click)=verEmpresa(nombre-empresa)-->
+                        <h4 class="emp-text">Soy una persona muy activa a la que le encanta la música y vive de ello. Llevo tocando la guitarra desde los 10 años, y a los 15 empecé a tocar el piano. Me encanta actuar con público ya que consigo evadirme y sentir la música de una manera muy especial.
+
+                        </h4>
+                        <br>
+                    </div>
+
+                    <h3 class="videos">Canciones:</h3>
+                    <div class="row about-cols">
+                        <div class="col-md-4 wow fadeInUp">
+                            <div class="about-col">
+                                 Queen
+                                <audio controls src='assets/canciones/queen.mp3' type="audio/mp3"></audio>
+
+                        </div>
+                        </div>
+                        <!--<div class="col-md-4 wow fadeInUp">
+                            <div class="about-col">
+                        <iframe width="260" height="215" src="https://www.youtube.com/embed/HgzGwKwLmgM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="about-col">
+                            <iframe width="260" height="215" src="https://www.youtube.com/embed/f4Mc-NYPHaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            </div>-->
+                    </div>
+
+                    <h3 class="videos">Enlaces a Youtube:</h3>
+                    <div class="row about-cols">
+                        <div class="col-md-4 wow fadeInUp">
+                            <div class="about-col">
+                        <iframe width="260" height="215" src="https://www.youtube.com/embed/t99KH0TR-J4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        </div>
+                        <div class="col-md-4 wow fadeInUp">
+                            <div class="about-col">
+                        <iframe width="260" height="215" src="https://www.youtube.com/embed/HgzGwKwLmgM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="about-col">
+                            <iframe width="260" height="215" src="https://www.youtube.com/embed/f4Mc-NYPHaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            </div>
+                    </div>
+                    
+                    <br><br>
+                
+        <h3 class="txt-empresa">Eventos realizados:</h3>
+        <div class="row about-cols">
+
+            <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/bar1.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-speedometer-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico" (click)="verOferta(0);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/hotel1.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-list-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico"(click)="verOferta(1);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/hotel3.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-eye-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico" (click)="verOferta(2);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </td>
+</tr>
+</table>
+        </div>
+        
+    </section>
+    
+    <!-- #about -->
+    </main>

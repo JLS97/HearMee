@@ -1,0 +1,415 @@
+<!--<p></p>
+<p></p>
+<p></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Gestiona tu oferta</h2>
+<h2>Titulo: {{ this.oferta.titulo }}</h2>
+<h2>Estilo: {{ this.oferta.estilo }}</h2>
+<h2>Ciudad: {{ this.oferta.ciudad }}</h2>
+<h2>Sueldo: {{ this.oferta.sueldo }}</h2>
+<button class="btn btn-warning" data-toggle="modal" data-target="#editarOferta">Editar</button>
+<button class="btn btn-danger" (click)="eliminar()" >Eliminar</button>-->
+
+
+<!--<script>
+  function recargar(){
+  location.href=location.href
+  }
+  setInterval('recargar()',20000)
+  </script>-->
+ 
+ <!--<script type="text/javascript">
+    $(document).ready(function() {
+            location.reload();
+    });     
+</script>-->
+
+<!--<script type="text/javascript">
+      $(document).ready(function() {
+              location.reload();
+      });     
+  </script>-->
+  <!--<meta http-equiv="Expires" content="0">-->
+
+ 
+
+<main id="main">
+    <!--==========================
+  About Us Section
+============================-->
+    <section id="about">
+      
+        <div class="container gestion-oferta-container" >
+          <a href="javascript:history.back()" class="btn-basico"><i class="fa fa-arrow-left"></i> Volver Atrás</a>
+            <h2 class="contacto" style="text-align:center;">Gestiona tu oferta</h2>
+            <h2 *ngIf="this.ArtistaAsignado.nombre!=''" class="contacto" style="text-align: center;">Oferta asignada a {{this.ArtistaAsignado.nombre}}. </h2>
+   <br>
+
+          <div class="datos">
+
+            <div class="imagen-datosemp">
+                <img class="imagen-datosemp" src="assets/img/bar1.jpg" alt="">
+            </div>
+
+          <div id="content">
+              <h5>Titulo: {{ this.oferta.titulo }}</h5>
+            <h5>Estilo: {{ this.oferta.estilo }}</h5>
+            <h5>Descripción: {{ this.oferta.descripcion }}</h5>
+            <h5>Ciudad: {{ this.oferta.ciudad }}</h5>
+            <h5>Sueldo: {{ this.oferta.sueldo }}</h5>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#editarOferta" *ngIf="this.ArtistaAsignado.nombre=='' || !this.ArtistaAsignado">Editar</button>
+            <button class="btn btn-danger" (click)="eliminar()" *ngIf="this.ArtistaAsignado.nombre=='' || !this.ArtistaAsignado">Eliminar</button>
+            <button class="btn-basico btn-tarjeta" (click)="cerrarOferta()" *ngIf="this.oferta.estado2!='Cerrada' && this.oferta.estado2!='Asignada'">Cerrar oferta</button>
+            <button class="btn-basico btn-tarjeta" (click)="abrirOferta()" *ngIf="this.oferta.estado2=='Cerrada'">Abrir oferta</button>
+            <!--<i class="fa fa-calendar"> </i> 9/04/2020<br><br>
+
+            <i class="fa fa-music"> </i>{{this.empresa.estilo}}<br><br>
+                Email: {{this.empresa.email}}
+            </h3>-->
+          </div>
+
+        </div>
+        <div id="contenedor">
+          <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+          <label for="tab-1" class="tab-label-1">Solicitantes</label>
+         
+          <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+          <label for="tab-2" class="tab-label-2">Preseleccionados</label>
+         
+          <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
+          <label for="tab-3" class="tab-label-3">Descartados</label>
+
+          <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4" />
+          <label for="tab-4" class="tab-label-4">Seleccionado</label>
+                                 
+          <div class="content">
+              <div class="content-1">
+                <!--<div class="container">-->
+                  <h1>Solicitantes: </h1>
+                  
+                  <table  id="" class="display table-simple" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Estilo</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of solicitantes">
+                        <td><a [routerLink]="['/musico',item._id]">{{item.nombre}}</a></td>
+                        <td *ngIf="item.estilo!=null">{{item.estilo}}</td>
+                        <td *ngIf="item.estilo=='' || !item.estilo">Pop</td>
+                        <td>{{item.email}}</td>
+                        <td><button class="ver-empresa" (click)="preseleccionar(item._id,1)">Preseleccionar</button></td>
+                        <td><button class="btn btn-danger" (click)="descartar(item._id,1)">Descartar</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <!--</div>-->
+              <div class="content-2">
+                <h1>Preseleccionados: </h1>
+                    
+                <table   id=""  class="display table-simple" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Estilo</th>
+                      <th>Email</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of preseleccionados">
+                      <td><a [routerLink]="['/musico',item._id]">{{item.nombre}}</a></td>
+                      <td *ngIf="item.estilo!=null">{{item.estilo}}</td>
+                      <td *ngIf="item.estilo=='' || !item.estilo">Pop</td>
+                      <td>{{item.email}}</td>
+                      <td></td>
+                      <td><button class="ver-empresa" data-toggle="modal" data-target="#modalmodal" (click)="seleccionar(item)" *ngIf="this.ArtistaAsignado.nombre=='' || !this.ArtistaAsignado" >Seleccionar</button></td>
+                      <td><button class="btn btn-danger" (click)="descartar(item._id,2)"  *ngIf="this.ArtistaAsignado.nombre != item.nombre">Descartar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="content-3">
+                <h1>Descartados: </h1>
+                    
+                <table id="" class="display table-simple" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Estilo</th>
+                      <th>Email</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of descartados">
+                      <td><a [routerLink]="['/musico',item._id]">{{item.nombre}}</a></td>
+                      <td *ngIf="item.estilo!=null">{{item.estilo}}</td>
+                      <td *ngIf="item.estilo=='' || !item.estilo">Pop</td>
+                      <td>{{item.email}}</td>
+                      <td></td>
+                      <td><button class="ver-empresa" (click)="preseleccionar(item._id,2)">Preseleccionar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="content-4">
+                <h1>Seleccion: </h1>
+                    
+                <table id="" class="display table-simple" cellspacing="0" >
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{this.sel.nombre}}</td>
+                      <td>{{this.sel.email}}</td>
+                      <td *ngIf="this.oferta.estado2!='Asignada'"> Esperando confirmación</td>
+                      <td *ngIf="this.oferta.estado2=='Asignada'">Asignada</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              
+          </div>
+      </div>
+        
+       
+        
+        </div>
+        
+    </section>
+    <!-- #about -->
+    </main>
+    
+                <!-- Modal -->
+                <div class="modal fade" id="editarOferta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edita tu oferta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-container" #nuevaofertaForm="ngForm" (ngSubmit)="editarOferta()" >
+                                <div class="form-group">
+                                  <label>Título</label>
+                                  <input autofocus type="text" #titulo="ngModel" name="titulo" placeholder="Titulo" [(ngModel)]="oferta.titulo" class="form-control" id="titulo" required>
+                                </div>
+                                <div>
+                                  <label>Descripción</label>
+                                  <textarea #descripcion="ngModel" name="descripcion" placeholder="Ej: Se busca guitarrista en la zona de la provincia de Alicante..." [(ngModel)]="oferta.descripcion" class="form-control" required></textarea>
+                                </div>
+                                <div>
+                                  <label>Localidad</label>
+                                  <ng-select [items]="localidadesObs | async"
+                                    [addTag]="false"
+                                    [multiple]="false"
+                                    [hideSelected]="true"
+                                    [minTermLength]="2"
+                                    [loading]="localidadesLoading"
+                                    typeToSearchText="Introduce 2 o más carácteres"
+                                    [typeahead]="localidadesInput"
+                                    [(ngModel)]="oferta.ciudad"
+                                    name="ciudad"
+                                    placeholder="Ej: Alicante, Valencia, etc"
+                                    class="select-oscuro">
+                                  </ng-select>
+                                </div>
+                                <br>
+                                <div>
+                                  <label>Estilo musical</label>
+                                  <ng-select [items]="estilosMusicalesObs | async"
+                                    [addTag]="false"
+                                    [multiple]="false"
+                                    [hideSelected]="true"
+                                    [minTermLength]="2"
+                                    [loading]="estilosMusicalesLoading"
+                                    typeToSearchText="Introduce 2 o más carácteres"
+                                    [typeahead]="estilosMusicalesInput"
+                                    [(ngModel)]="oferta.estilo"
+                                    name="estilo"
+                                    placeholder="Ej: Pop, Rock, etc"
+                                    class="select-oscuro">
+                                  </ng-select>
+                                </div>
+                                <br>
+                                <div>
+                                  <label>Instrumentos</label>
+                                  <ng-select [items]="instrumentosObs | async"
+                                    [addTag]="false"
+                                    [multiple]="true"
+                                    [hideSelected]="true"
+                                    [minTermLength]="2"
+                                    [loading]="instrumentosLoading"
+                                    typeToSearchText="Introduce 2 o más carácteres"
+                                    [typeahead]="instrumentosInput"
+                                    [(ngModel)]="oferta.instrumentos"
+                                    name="instrumentos"
+                                    placeholder="Ej: Guitarra, Piano, etc"
+                                    class="select-oscuro">
+                                  </ng-select>
+                                </div>
+                                <br>
+                                <div>
+                                    <label>Fecha del Evento</label>
+                                    <input type="date" #fechaEvento="ngModel" name="fechaEvento" [(ngModel)]="oferta.fechaEvento" class="form-control" id="fechaEvento" required>
+                                </div>
+                                <br>
+                                <div>
+                                  <label>Fecha de vecimiento de la oferta</label>
+                                  <input type="date" #fechaEvento="ngModel" name="fechaVencimiento" [(ngModel)]="oferta.fechaFin" class="form-control" id="fechaFin" required>
+                                </div>
+                                <br>
+                                <div>
+                                    <label></label>
+                                    <input type="number" #sueldo="ngModel" name="sueldo" placeholder="Sueldo" [(ngModel)]="oferta.sueldo" class="form-control" id="sueldo" required> 
+                                </div>
+                                <br>
+                                <br/>
+                                <button type="submit" class="btn btn-basico btn-block" style="margin-bottom: 3%;">Guardar</button>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-peligro" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+<!--
+                <div id="contenedor">
+                  <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                  <label for="tab-1" class="tab-label-1">Solicitantes</label>
+                 
+                  <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                  <label for="tab-2" class="tab-label-2">Preseleccionados</label>
+                 
+                  <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
+                  <label for="tab-3" class="tab-label-3">Descartados</label>
+                                         
+                  <div class="content">
+                      <div class="content-1">
+                        <!--<div class="container">-*->
+                          <h1>Solicitantes: </h1>
+                          
+                          <table datatable [dtOptions]="dtOptions" id="" class="display" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>Nombre</th>
+                                <th>Estilo</th>
+                                <th>Estado</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of solicitantes">
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.estilo}}</td>
+                                <td>{{item.fechaEvento}}</td>
+                                <td></td>
+                                <td><button class="ver-empresa" (click)="preseleccionar(item._id,1)">Preseleccionar</button></td>
+                                <td><button class="btn btn-danger" (click)="descartar(item._id,1)" >Descartar</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      <!--</div>-*->
+                      <div class="content-2">
+                        <h1>Preseleccionados: </h1>
+                            
+                        <table datatable [dtOptions]="dtOptions" id="" class="display" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Estilo</th>
+                              <th>Estado</th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of preseleccionados">
+                              <td>{{item.nombre}}</td>
+                              <td>{{item.estilo}}</td>
+                              <td>{{item.fechaEvento}}</td>
+                              <td></td>
+                              <td><button class="ver-empresa" (click)="seleccionar(item._id)">Seleccionar</button></td>
+                              <td><button class="btn btn-danger" (click)="descartar(item._id,2)" >Descartar</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="content-3">
+                        <h1>Descartados: </h1>
+                            
+                        <table datatable [dtOptions]="dtOptions" id="" class="display" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Estilo</th>
+                              <th>Estado</th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of descartados">
+                              <td>{{item.nombre}}</td>
+                              <td>{{item.estilo}}</td>
+                              <td>{{item.fechaEvento}}</td>
+                              <td></td>
+                              <td><button class="ver-empresa" (click)="preseleccionar(item._id,2)">Preseleccionar</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+              </div>-->
+
+                
+          <div class="modal" tabindex="-1" role="dialog" id="modalmodal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmar selección.</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>¿Deseas que {{this.seleccion.nombre}} sea tu selección final?</p>
+                  <p>Podrás cambiar tu selección si el artista declina la oferta o si no responde en 2 días.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" (click)="reload()" class="btn btn-primary">Seleccionar</button>
+                  <button type="button" (click)="descarto()" class="btn btn-secondary" data-dismiss="modal">Descartar</button>
+                </div>
+              </div>
+            </div>
+          </div>

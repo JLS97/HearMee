@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+         
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align: center;" *ngIf="this.ofertas.length > 0">Gestión ofertas</h1>
+<h1 style="text-align: center;" *ngIf="this.artistas.length > 0">Gestión artistas</h1>
+
+<h1 style="text-align: center;"><button (click)="gestionarartistas()" class="btn-basico" *ngIf="this.ofertas.length > 0">gestionar artistas</button></h1>
+<h1 style="text-align: center;"><button (click)="gestionarofertas()" class="btn-basico" *ngIf="this.artistas.length > 0">gestionar ofertas</button></h1>
+                  
+<div class="container" *ngIf="this.ofertas.length > 0">
+    <h1>Ofertas</h1>
+    
+    <table  id="tabla" class="table display table-simple table-hover" cellspacing="0"  >
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Fecha evento</th>
+          <th>Estado</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ofertas">
+          <td>{{item.titulo}}</td>
+          <td>{{item.fechaEvento}}</td>
+          <td *ngIf="item.aprobada==true" >Aprobada</td>
+          <td *ngIf="item.aprobada==false || !item.aprobada" >Pendiente</td>
+          <td *ngIf="item.aprobada==false || !item.aprobada" ><button class="btn btn-basico" (click)="aprobar(item._id)" >Aprobar</button></td>
+          <td *ngIf="item.aprobada==true" ><button class="btn btn-warning" (click)="desaprobar(item._id)">Anular</button></td>
+          <td><button class="btn btn-danger" (click)="eliminar(item._id)" >Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+
+  <div class="container" *ngIf="this.artistas.length > 0">
+    <h2>Artistas</h2>
+    <table  id="tabla" class="table display table-simple table-hover" cellspacing="0"  >
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de alta</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of artistas">
+          <td>{{item.nombre}}</td>
+          <td>{{item.fechaFin}}</td>
+          <td></td>
+          <td><button class="ver-empresa" (click)="banear(item._id)">Banear</button></td>
+          <td><button class="btn btn-danger" (click)="eliminar(item._id)" >Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+  </body>
+</html> 

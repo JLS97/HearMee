@@ -1,0 +1,112 @@
+
+
+      <br><br>
+      <main id="main">
+
+          <!--==========================
+        About Us Section
+      ============================-->
+          <section id="about">
+              <div class="container">
+
+                  <h3>Bienvenido a tu perfil de músico, {{this.usuario.nombre}}</h3>
+                  <div class="datos">
+
+                      <div class="imagen-datosemp">
+                          <img class="imagen-datosemp" src="assets/images/hotel1.jpg" alt="">
+                      </div>
+
+                    <div id="content">
+                        <h3 class="texto-datosemp"> <i class="fa fa-map-marker"></i> - {{this.usuario.ciudad}}<br><br>
+
+
+
+                      <i class="fa fa-calendar"> </i> 24 años<br><br>
+
+                      <i class="fa fa-music"> </i> - {{this.usuario.estilo}}<br><br>
+                          Email: {{this.usuario.email}}
+                      </h3>
+                    </div>
+
+                  </div>
+                  <br><br>
+              </div>
+
+              <div class="container">
+    <nav class="navbar navbar-expand-lg">
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link miPerfil" routerLinkActive="active" routerLink="/perfil">Perfil</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link misOfertas" routerLinkActive="active" routerLink="/perfil/mis-ofertas">Mis ofertas <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/perfil/mis-canciones">Mis canciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/perfil/mis-enlaces">Mis enlaces</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    
+  <div class="contene">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tabla-ofertas" class="table table-hover" cellspacing="0"  >
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Fecha evento</th>
+            <th>Estado</th>
+            <th>Sueldo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ofertas;let i = index">
+            <td>{{item.titulo}}</td>
+            <td>{{item.fechaEvento | date:'d/M/yyyy'}}</td>
+            <td *ngIf="!aceptado(item)">En proceso</td>
+            <td *ngIf="aceptado(item) && !asignada(item)">¡ACEPTADO!</td>
+            <td *ngIf="asignada(item)">Asignada</td>
+            <td>{{item.sueldo}} €</td>
+              <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-tarjeta btn-secundario" (click)="aceptarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Confirmar</button></td>
+              <td *ngIf="aceptado(item) && !asignada(item)"><button class="btn-peligro btn-tarjeta" (click)="rechazarOferta(item,i)"><i class="fa fa-exclamation-circle"></i>Rechazar</button></td>
+              <td><button *ngIf="!aceptado(item)" class="btn-basico btn-tarjeta" (click)="verOferta(item._id)" ><i class="fa fa-eye"></i> Ver oferta</button></td>
+              <td><button *ngIf="!aceptado(item)" class="btn-peligro btn-tarjeta" data-toggle="modal" data-target="#modalCancelar" (click)="precancelar(item,i,item.titulo)"><i class="fa fa-times"></i> Cancelar solicitud</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>         
+          </section>
+          <!-- #about -->
+
+      </main>
+
+      <div class="modal" tabindex="-1" role="dialog" id="modalCancelar">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Cancelar inscripción.</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Deseas cancelar tu inscripción en {{this.itemCancelarNombre}}?</p>
+              <p>Podrás  volver a inscribirte en cualquier momento, siempre y cuando la oferta esté abierta.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-primary">Salir</button>
+              <button type="button" (click)="cancelarSolicitud()" class="btn btn-secondary" data-dismiss="modal">Cancelar inscripción</button>
+            </div>
+          </div>
+        </div>
+      </div>
+

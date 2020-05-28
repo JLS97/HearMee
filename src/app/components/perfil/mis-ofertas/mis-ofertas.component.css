@@ -1,0 +1,57 @@
+.nav-link{
+    border-left: 2px solid lime;
+  }
+
+  .nav-link:hover{
+    color: rgb(7, 114, 39);
+    border-left: 2px solid rgb(11, 194, 11);
+  }
+
+  .misOfertas{
+    color: rgb(0, 0, 0);
+    border-left: 2px solid rgb(0, 0, 0);
+    font-size: 19px;
+  }
+
+  .btn-lista{
+    margin-left: 10%;
+    border-radius: 4px;
+    padding: 1.5%;
+    color: white;
+    background-color: rgb(90, 199, 90);
+  }
+
+  .btn-lista:hover{
+    transition: 0.3s;
+    background-color: white;
+    color: rgb(19, 177, 19);
+    border-color: rgb(15, 189, 15);
+  }
+
+  .btn-canc{
+    margin-left: 5%;
+    border-radius: 4px;
+    padding: 1.5%;
+    color: white;
+    background-color: rgb(206, 64, 45);
+  }
+
+  .btn-canc:hover{
+    transition: 0.3s;
+    background-color: white;
+    color: rgb(206, 64, 45);
+    border-color: red;
+  }
+
+  .imagen-datosemp{
+    width: 300px;
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 2em;
+  }
+
+  .texto-datosemp{
+    font-size: 20px;
+    color: rgb(80, 79, 79);
+    padding: 10px;
+  }

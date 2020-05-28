@@ -1,0 +1,173 @@
+
+.logo-hearmee-navbar{
+    width: 200px;
+}
+
+.loading-screen-wrapper {
+    z-index: 100000;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+}
+  
+.loading-screen-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navegacion .nav-tabs .nav-link.navbar-text-dark:not(.active) {
+    border-bottom: 1px solid #00d9a7;
+    cursor: pointer;
+}
+.navegacion .nav-tabs .nav-link.navbar-text-dark:not(.active):hover {
+    color: #00d9a7;
+}
+
+.navegacion .nav-link.active.navbar-text-dark{
+    border: 1px solid #00d9a7;
+    background: #00d9a7;
+    color: #fff;
+    cursor: pointer;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+#header.scrolled{
+    background: transparent;
+}
+.form-container{
+    margin: auto;
+}
+.form-container > .search-icon{
+    display: inline-block;
+    float: left;
+    margin: 16px 0 16px 20px;
+}
+.form-container > .ng-select{
+    display: inline-block;
+    float: left;
+    min-width: 300px;
+}
+#buscador-form{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#buscador-form.ocultar{
+    display: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.search-toggle.ocultar{
+    display: none;
+}
+
+.inicio-sesion > .navbar-buttons-text {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.navbar-busqueda{
+    background: #181a1c;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 0;
+    background-image: linear-gradient(rgba(24, 26, 28,1), rgba(24, 26, 28,0.93)), url("src/assets/images/patron_fondo.jpg");
+    background-size: 77px;
+    box-shadow: 0px 5px 4px rgba(24, 26, 28,1);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    top: -135px;
+}
+#buscador-navbar-toggle:checked + .navbar-busqueda {
+    top: 80px;
+}
+#buscador-form{
+    margin: auto;
+    font-size: 24px;
+}
+#buscador-form .ng-select{
+    width: 460px;
+}
+
+#buscador-form .search-icon {
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 8px 14px;
+}
+.search-toggle{
+    padding: 8px 12px;
+}
+
+@media (max-width: 568px) {
+    .inicio-sesion > .navbar-buttons-text {
+        display: none;
+    }
+    .logo-hearmee-navbar{
+        width: 170px;
+        padding-top: 6px;
+    }
+    #buscador-form{
+        margin: auto;
+        font-size: 20px;
+    }
+    .form-container > .ng-select{
+        min-width: 300px;
+    }
+    #buscador-form .ng-select{
+        width: 300px;
+    }
+    #buscador-form .search-icon{
+        padding: 5px 10px;
+        font-size: 16px;
+        margin-top: 22px;
+    }
+}
+
+@media (max-width: 370px) {
+    .logo-hearmee-navbar{
+        width: 140px;
+        padding-top: 8px;
+    }
+    .inicio-sesion{
+        margin-right: 4px;
+    }
+    .btn-basico.inicio-sesion{
+        padding: 8px 12px;
+    }
+    #buscador-form{
+        margin: auto;
+        font-size: 18px;
+    }
+    .form-container > .ng-select{
+        min-width: 222px;
+    }
+    #buscador-form .ng-select{
+        width: 222px;
+    }
+    #buscador-form .search-icon{
+        padding: 5px 10px;
+        font-size: 16px;
+        margin-top: 22px;
+    }
+    
+}
+.form-control.mr-sm-2{
+    width: 500px;
+}

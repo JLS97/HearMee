@@ -1,0 +1,299 @@
+.imagen-datosemp{
+  width: 300px;
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+.nav-link{
+  border-left: 2px solid lime;
+}
+
+.nav-link:hover{
+  color: rgb(7, 114, 39);
+  border-left: 2px solid rgb(11, 194, 11);
+}
+
+
+
+.botones{
+  margin-top: 2%;
+  margin-bottom: 5%;
+  padding: 2%;
+}
+.btn-basico{
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.boton-perfil{
+  margin-left: 2%;
+  border-radius: 4px;
+  background-color: rgb(86, 192, 86);
+  border-color: rgb(209, 206, 206);
+  color: white;
+}
+  
+.boton-perfil:hover{
+  transition: 0.3s;
+  color: rgb(86, 192, 86);
+  border-color: rgb(209, 206, 206);
+  background-color: white;
+}
+  
+  
+.miPerfil{
+  color: rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  font-size: 19px;
+}
+
+.texto-datosemp{
+  font-size: 20px;
+  color: rgb(80, 79, 79);
+  padding: 10px;
+}
+
+
+
+
+#contenedor {
+  margin: 40px auto;
+  width: 100%;  /* Ancho del contenedor */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin-top: 0px;
+}
+    
+#contenedor input {
+height: 32px;
+visibility: hidden;
+}
+    
+#contenedor label {
+  float: left;
+  cursor: pointer;
+  font-size: 18px;  /* Tamaño del texto de las pestañas */
+  line-height: 40px;
+  height: 40px;
+  padding: 0 20px;
+  display: block;
+  color: #888;  /* Color del texto de las pestañas */
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  background: rgb(253, 252, 252);  /* Fondo de las pestañas */
+  margin-right: 5px;
+}
+    
+#contenedor input:hover + label {
+  background: #ddd;  /* Fondo de las pestañas al pasar el cursor por encima */
+  color: #666;  /* Color del texto de las pestañas al pasar el cursor por encima */
+}
+    
+#contenedor input:checked + label {
+   /*background: rgb(235, 235, 235);  Fondo de las pestañas al presionar */
+  color: #444; /* Color de las pestañas al presionar */
+  z-index: 6;
+  line-height: 45px;
+  height: 45px;
+  position: relative;
+  top: -5px;
+  /* -webkit-transition: .1s;
+  -moz-transition: .1s;
+  -o-transition: .1s;
+  -ms-transition: .1s;*/
+  background: #fff;
+  box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.17);
+}
+    
+.content {
+  /*background: rgb(235, 235, 235);   Fondo del contenido */
+  position: relative;
+  width: 100%;
+  min-height: 350px;  /* Alto del contenido */
+  padding: 0;
+  z-index: 5;
+  border-radius: 0 5px 5px 5px;
+  text-align: center;
+  box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  background: #fff;
+}
+    
+.content div {
+  /*position: absolute;*/
+  z-index: -100;
+  display: none;
+  transition: all linear 0.1s;
+  text-align: center;
+  width: 100%;
+  padding: 30px;
+}
+.content .dataTables_wrapper .dataTables_filter input {
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  padding: 5px 15px;
+}
+
+
+    
+#contenedor input.tab-selector-1:checked ~ .content .content-1,
+#contenedor input.tab-selector-2:checked ~ .content .content-2,
+#contenedor input.tab-selector-3:checked ~ .content .content-3,
+#contenedor input.tab-selector-4:checked ~ .content .content-4 {
+  z-index: 100;
+  display: block;
+    /* -webkit-transition: all ease-out 0.2s 0.1s;
+-moz-transition: all ease-out 0.2s 0.1s;
+-o-transition: all ease-out 0.2s 0.1s;
+-ms-transition: all ease-out 0.2s 0.1s;*/
+}
+
+.perfil-container{
+  /*background: #fff;*/
+  padding: 20px 40px;
+  margin-top: 30px;
+  /*box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);*/
+}
+.perfil-titulo{
+  text-align: center;
+  font-size: 30px;
+  background: #fff;
+  box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  padding: 20px;
+  margin-bottom: 60px;
+}
+.perfil-foto {
+  margin-bottom: 20px;
+}
+.perfil-foto img{
+  border-radius: 115px;
+  width: 150px;
+  height: 150px;
+  margin: 20px 0 14px 0;
+  box-shadow: 0 0 10px #181a1c;
+  background: #c9e3ff;
+}
+.perfil-datos-item{
+  margin-bottom: 10px;
+}
+img.artista-icon {
+  width: 24px;
+  margin-right: 10px;
+}
+i.artista-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.label-perfil > img,
+.label-perfil > i{
+  margin-left: 10px;
+}
+.label-perfil > img{
+  width: 20px;
+}
+
+/*.artista-tarjeta {
+  background: #fff;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  padding: 0;
+}
+.artista-imagen {
+  background: #090909;
+  background-image: url("src/assets/images/musical.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 0px;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.artista-imagen img {
+  border-radius: 115px;
+  width: 150px;
+  height: 150px;
+  margin: 20px 0 14px 0;
+  box-shadow: 0 0 10px #181a1c;
+  background: #c9e3ff;
+}
+.artista-nombre {
+  padding: 0 20px 12px 20px;
+  text-align: center;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #090909;
+  color: #fff;
+  font-weight: 500;
+  border-bottom: 4px solid #00d9a7;
+}
+.artista-info {
+  padding: 20px 30px 10px 30px;
+}
+.artista-info-item {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.artista-info-item:first-child {
+  text-transform: none;
+}
+.artista-icon {
+  width: 24px;
+  margin-right: 10px;
+}
+.artista-botones {
+  padding: 10px 0px;
+  width: 100%;
+  text-align: center;
+}*/
+
+.artista-header {
+  background: #fff;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+.artista-header-left {
+  text-align: center;
+  background: #090909;
+  background-image: url("src/assets/images/musical.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 0px;
+}
+.artista-header-left img {
+  border-radius: 115px;
+  width: 150px;
+  height: 150px;
+  margin: 20px 0 14px 0;
+  box-shadow: 0 0 10px #181a1c;
+  background: #c9e3ff;
+}
+.artista-nombre{
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  padding-bottom: 20px;
+}
+.artista-header-right{
+  padding: 10px 20px;
+}
+.artista-info-title{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 100;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.artista-info {
+  text-align: center;
+  margin: 30px 0;
+}
+.artista-botones {
+  text-align: center;
+}
+.artista-botones > button:first-child {
+  margin-right: 30px;
+}

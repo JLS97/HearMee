@@ -1,0 +1,20 @@
+/************** CONTACTO ******************/
+.texto-contacto{
+    background-color: #fff;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    }
+    .enviar{
+    font-family: 'Quicksand', sans-serif;
+      font-size: 1em;
+      color: #000;
+      display: inline-block;
+      align-items: center;
+     border-radius: 5px;
+     padding: 0.2em;
+      margin-bottom: 0.5em;
+        background-color: rgb(197, 197, 196);
+        margin-left: 2em;
+        padding: 0.2em;
+    }

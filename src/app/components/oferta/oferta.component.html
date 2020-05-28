@@ -1,0 +1,93 @@
+  
+
+<main id="main">
+    <!--==========================
+  About Us Section
+============================-->
+    <section id="about">
+        <div class="container oferta-container">
+            <a href="javascript:history.back()" class="btn-basico" ><i class="fa fa-arrow-left"></i> Volver Atrás</a>
+            <br>
+            
+            <div class="imagen">  
+                <img src="assets/img/hotel1.jpg" alt="" style="margin-top:1em;">
+                    
+            </div>
+            <table class="tabla">
+                <tr>
+                    <td class="first">
+                        <h2 class="oferta-titulo"><strong>{{oferta.titulo}}</strong></h2>
+                        <h5 class="empresa-valoracion">Oferta creada por Pub Irish <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                            <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                            <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                            <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                            <i class='fa fa-star'></i> 112</h5>
+                        <div class="desc">
+                            <h4 class="seccion">Detalles de la oferta: </h4>
+                            <h4 class="desc-text">
+                                {{oferta.descripcion}}</h4>
+                        </div>
+                        <hr>
+                        <div class="empresa">
+                            
+                            <img class="empresa-imagen" src="assets/img/hotel1.jpg" alt="">
+                            <div class="empresa-texto">
+                                <h3 class="seccion">Hola, somos Pub Irish</h3>
+                                <!--<br><br>-->
+                                <!--(click)=verEmpresa(nombre-empresa)-->
+                                <h4 class="emp-text">Somos un local creado en 1978 localizado en Valencia que cuenta un gran número de clientes. Nuestra especialidad es la cerveza, de la cual contamos con una gran variedad. Todos los fin de semana organizamos conciertos de diferentes estilos
+                                    musicales para que nuestros clientes disfruten de buen ambiente para tomar algo.</h4>
+                                <br>
+                            </div>
+                        </div>
+        </td>
+        <td class="second">
+            <div class="text-oferta">
+                <h3 class="texto3"> <i class="fa fa-map-marker" *ngIf="oferta.ciudad"></i> {{oferta.ciudad}}
+                    <hr>
+                    <i class="fa fa-eur" *ngIf="oferta.sueldo"> </i> {{oferta.sueldo}}
+                    <hr>
+                    
+                    <i class="fa fa-calendar"> </i> {{oferta.fechaEvento | date:'d/M/yyyy'}}
+                    <hr>
+                    <i class="fa fa-music" *ngIf="oferta.estilo"> </i> {{oferta.estilo}}
+                    <hr>
+                </h3>
+                    <h5 class="cuenta-atras"> 
+                        <button class="btn-tarjeta btn-secundario" *ngIf="!identity && oferta.estado2!='Cerrada' && oferta.estado2!='Asignada'" data-toggle="modal" data-target="#myModal2">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        <button class="btn-tarjeta btn-secundario" *ngIf="identity && oferta.estado2!='Cerrada' && oferta.estado2!='Asignada'" data-toggle="modal" data-target="#mymodalInscribirse" (click)="solicitarOferta(oferta._id)">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    </h5>
+
+                    
+            </div>
+
+            
+        </td>
+        </tr>
+        </table>
+        </div>
+    </section>
+
+    
+<!--Modal-->
+<div id="mymodalInscribirse" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" *ngIf="identity">
+          <p>Te has inscrito en la oferta</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" *ngIf="identity" class="btn btn-success" data-dismiss="modal">Perfecto</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+    
+    <!-- #about -->
+</main>

@@ -1,0 +1,66 @@
+
+<head>
+    <title>Motor grafico: MG. V1.05 ALPHA</title>  
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+</head>
+
+<body onload="iniciar()">
+        <h1>¿No ves nada?</h1>
+        <div class="artista-tarjeta-container">
+            <h2 class="artista-tarjeta-top">Estás escuchando a:</h2>
+            <div class="artista-tarjeta">
+                <div class="img artista-imagen">
+                    <!--img [src]="item.foto" alt="{{res.nombre}}" class="img-fluid" *ngIf="res.foto"-->
+                    <img src="assets/images/profile.png"  class="img-fluid">
+                </div>
+                <div class="artista-nombre">
+                    Margeaux
+                </div>
+                <div class="artista-info">
+                    <div class="artista-info-item" ><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="oferta-icon" > Pop</div>
+                    <div class="artista-info-item" ><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="oferta-icon"> Guitarra</div>
+                    <div class="artista-info-item" ><img src="assets/images/signs.png" alt="Lugar" class="oferta-icon">Murcia</div>
+                </div>
+                <div class="artista-botones" *ngFor="let item of links">
+                    <a class="btn-tarjeta btn-basico" [routerLink]="['/musico',item]" target="_blank">Ver más <i class="fa fa-eye" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="audio-container">
+            <audio src='assets/canciones/queen.mp3' type="audio/mp3" autoplay controls loop>
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+        </div>
+        <div class="button-siguiente-container">
+            <button class="btn-tarjeta btn-basico">Siguiente</button>
+        </div>
+        <canvas id="canvas"  width="1080" height="720"  class="div2"></canvas>
+        <img src="assets/motor/texturas/fondo.jpg" width="1280"  height='720' id="div3" >
+        
+        <!--<div class="row artistas-container">
+            <div class="col-sm-6 col-md-4 col-lg-3 wow fadeInUp artista-tarjeta-col" data-wow-delay="0.1s" style="margin-left: 50px;" >
+                <div class="artista-tarjeta">
+                    <div class="img artista-imagen">
+                        <!--img [src]="item.foto" alt="{{res.nombre}}" class="img-fluid" *ngIf="res.foto"-*->
+                        <img src="assets/images/profile.png"  class="img-fluid">
+                    </div>
+                    <div class="artista-nombre">
+                        Margeaux
+                    </div>
+                    <div class="artista-info">
+                        <div class="artista-info-item" ><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="oferta-icon" > Pop</div>
+                        <div class="artista-info-item" ><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="oferta-icon"> Guitarra</div>
+                        <div class="artista-info-item" ><img src="assets/images/signs.png" alt="Lugar" class="oferta-icon">Murcia</div>
+                    </div>
+                    <div class="artista-botones" *ngFor="let item of links">
+                        <a class="btn-tarjeta btn-basico" [routerLink]="['/musico',item]" target="_blank">Ver más <i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+</body>

@@ -1,0 +1,21 @@
+<div class="oferta-tarjeta">
+    <div class="img oferta-imagen">
+        <img [src]="oferta.foto" alt="{{oferta.titulo}}" class="img-fluid" *ngIf="oferta.foto && oferta.foto != null">
+        <img src="assets/img/bar1.jpg" alt="{{oferta.titulo}}" class="img-fluid" *ngIf="!oferta.foto || oferta.foto == null">
+    </div>
+    <div class="oferta-titulo" title="{{oferta.titulo}}">
+        {{oferta.titulo}}
+    </div>
+    <div class="oferta-info">
+        <div class="oferta-info-item" *ngIf="oferta.estilo && oferta.estilo.length > 0"><img src="assets/images/heavy-metal.png" alt="Estilos musicales" class="oferta-icon" > {{oferta.estilo.join(', ')}}</div>
+        <div class="oferta-info-item" *ngIf="oferta.instrumentos && oferta.instrumentos.length > 0"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="oferta-icon"> {{oferta.instrumentos.join(', ')}}</div>
+        <div class="oferta-info-item" *ngIf="oferta.ciudad"><img src="assets/images/signs.png" alt="Lugar" class="oferta-icon"> {{oferta.ciudad}}</div>
+        <div class="oferta-info-item" *ngIf="oferta.fechaEvento"><img src="assets/images/calendar.png" alt="Día" class="oferta-icon"> {{ oferta.fechaEvento | date:'d/M/yyyy'}}</div>
+        <div class="oferta-info-item" *ngIf="oferta.sueldo"><img src="assets/images/price-tag.png" alt="Sueldo" class="oferta-icon"> {{oferta.sueldo}} €</div>
+    </div>
+    <div class="oferta-botones">
+        <button class="btn-tarjeta btn-secundario" *ngIf="identity == null && oferta.estado2!='Cerrada' && oferta.estado2!='Asignada'" data-toggle="modal" data-target="#myModal2">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        <button class="btn-tarjeta btn-secundario" *ngIf="identity != null && oferta.estado2!='Cerrada' && oferta.estado2!='Asignada'"  (click)="solicitarOferta(oferta._id, oferta.titulo)">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        <a class="btn-tarjeta btn-basico" [routerLink]="['/oferta', oferta._id]" target="_blank">Más información <i class="fa fa-eye" aria-hidden="true"></i></a>
+    </div>
+</div>

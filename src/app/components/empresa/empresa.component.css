@@ -1,0 +1,291 @@
+/******************* Perfil registrado EMPRESA *****************************/
+.nueva-oferta .modal-dialog{
+  max-width: 800px;
+}
+.nueva-oferta .modal-header{
+  background: #00d9a7;
+}
+.nueva-oferta .modal-header .modal-title{
+  font-weight: normal;
+  text-align: center;
+  margin: auto;
+  color: #fff;
+  width: 100%;
+  font-size: 25px;
+}
+.nueva-oferta .modal-header .modal-title{
+  font-weight: normal;
+  text-align: center;
+  margin: auto;
+  color: #fff;
+  width: 100%;
+  font-size: 25px;
+}
+.nueva-oferta .crear-oferta-btn > button{
+  margin: 50px auto 20px auto;
+}
+
+.empresa-container{
+  background: #fff;
+  padding: 20px 40px;
+  margin-top: 60px;
+  box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.calendar-month.block{
+    float: right;
+    margin-left: 2em;
+    }
+    .calendar-month {
+      height: 380px;
+    }
+        .calendar-month .arrow-btn:hover {
+          background: #1a4e95;
+        }
+      .calendar {
+        margin: 22px 15px;
+        text-align: center;
+      }
+        .calendar a {
+          font-size: 17px;
+        }
+        .calendar td, .calendar th {
+          width: 40px;
+          height: 38px;
+        }
+        .calendar .days-week {
+          color: #4fc4f6;
+        }
+        .calendar .cir0 {
+          display: block;
+          width: 34px;
+          line-height: 34px;
+          background: #5cb85c;
+          border-radius: 100%;
+          color: #000;
+        }
+        .calendar .cir1 {
+          display: block;
+          width: 34px;
+          line-height: 34px;
+          background: #f37a18;
+          border-radius: 100%;
+          color: #000;
+        }
+        .calendar .cir2 {
+          display: block;
+          width: 34px;
+          line-height: 34px;
+          background: #3e3be0;
+          border-radius: 100%;
+          color: #000;
+        }
+        .calendar .cir3 {
+          display: block;
+          width: 34px;
+          line-height: 34px;
+          background: #c02814;
+          border-radius: 100%;
+          color: #000;
+        }
+    
+        .titular{
+          color: #000; 
+          text-align: center;
+        }
+    
+        .sec-header h3 {
+          font-size: 32px;
+          color: #111;
+          text-transform: uppercase;
+          text-align: center;
+          font-weight: 700;
+          position: relative;
+          padding-bottom: 15px;
+        }
+    
+        .circulos{
+          margin-left: 1em;
+        }
+    
+        .cr1{
+          width: 12em;
+          display: inline-block;
+        }
+        .circulo-0 {
+          width: 15px;
+          height: 15px;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          background: #5cb85c;
+          float: left;
+          margin-right: 0.3em;
+      }
+      .circulo-1 {
+        width: 15px;
+          height: 15px;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          background: #f37a18;
+          float: left;
+          margin-right: 0.3em;
+    }
+    .circulo-2 {
+      width: 15px;
+        height: 15px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #3e3be0;
+        float: left;
+        margin-right: 0.3em;
+    }
+    .circulo-3 {
+    width: 15px;
+      height: 15px;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background: #c02814;
+      float: left;
+      margin-right: 0.3em;
+    }
+    
+        .circulo {
+          width: 15px;
+          height: 15px;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          background: #f37a18;
+          float: right;
+          margin-right: 1em;
+          margin-top: 0.2em;
+      }
+        .circulo1 {
+          width: 15px;
+          height: 15px;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          background: #5cb85c;
+          float: right;
+          margin-right: 1em;
+          margin-top: 0.2em;
+      }
+      .circulo2 {
+        width: 15px;
+        height: 15px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #c02814;
+        float: right;
+        margin-right: 1em;
+        margin-top: 0.2em;
+    }
+    .circulo3 {
+      width: 15px;
+      height: 15px;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background: #3e3be0;
+      float: right;
+      margin-right: 1em;
+      margin-top: 0.2em;
+    }
+    
+    .texto{
+    text-align: center;
+    }
+    .candi{
+    font-weight: bold;
+    text-align: center;
+    }
+    
+    .candi-nuevos{
+    font-weight: bold;
+    text-align: center;
+    color: #c02814;
+    }
+    
+    .ver-empresa{
+    margin-left: 4em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding: 0.2em;
+    
+    }
+    .ver-empresa:hover{
+      background-color: #666666;
+      color: #fff;
+    }
+    .editar-oferta{
+      margin-left: 2em;
+      margin-bottom: 1em;
+      border-radius: 5px;
+      padding: 0.2em;
+      margin-right: 1em;
+      
+      }
+      .editar-oferta:hover{
+        background-color: #666666;
+        color: #fff;
+      }
+    
+    .boton-oferta{
+    font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1px;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 10px;
+      transition: 0.5s;
+      margin: 10px;
+      color: #fff;
+      background: #13a456;
+    }
+    .boton-oferta:hover{
+        background: #fff;
+        color: #00d9a7;
+      
+    }
+    .boton-oferta1{
+    text-align: center;
+    
+    }
+    .texto-datosemp{
+      font-size: 20px;
+      color: rgb(80, 79, 79);
+      padding: 10px;
+    }
+    .imagen-datosemp{
+      width: 300px;
+      float: left;
+      margin-right: 2em;
+      margin-bottom: 2em;
+    }
+    .datos{
+      margin-top: 0em;
+    }
+
+
+    /******************** MODAL DE CREAR OFERTA ********************/
+.modal-title{
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .form-control{
+    border-radius: 10px;
+  }
+
+
+  form input[type="text"]:focus:required:invalid{
+    border:2px solid red;
+    /* otras propiedades */
+   }

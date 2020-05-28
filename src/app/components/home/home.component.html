@@ -1,0 +1,168 @@
+    <!--<section id="intro">
+        <div class="intro-container">
+          
+            <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+                <ol class="carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active">
+                        <div class="carousel-background"><img src="assets/img/intro-carousel/4.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>YA DISPONIBLE</h2>
+                                <p>Ya está disponible nuestra Radio con la mejor música de nuestros artistas.</p>
+                                <a href="#/radio" class="btn-get-started scrollto" >Radio</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="assets/img/intro-carousel/1.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Con HearMee encontrarás lo que buscas</h2>
+                                <p>Contamos con gran número de ofertas de diferentes empresas y estilos para que encuentres la que se ajusta más a tu perfil musical.
+                                </p>
+                                <a href="#about" class="btn-get-started scrollto">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="assets/img/intro-carousel/4.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>YA DISPONIBLE</h2>
+                                <p>Ya está disponible nuestra Radio con la mejor música de nuestros artistas.</p>
+                                <a href="#/radio" class="btn-get-started scrollto" >Radio</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="assets/img/intro-carousel/2.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Trato personal para las empresas</h2>
+                                <p> A la hora de selección, las emrpesas cuentan con la opción de preselección en la que el sistema hace una primera selección con los músicos que estén interesados 
+                                  que más se acerquen al estilo de músico deseado.
+                                </p>
+                                <a href="#about" class="btn-get-started scrollto">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="assets/img/intro-carousel/3.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Perfil de músico ampliado</h2>
+                                <p>HearMee cuenta con la opción de crear un perfil de músico en el que pueda subir canciones propias a la plataforma, así como enlaces a YouTube de actuaciones que haya 
+                                  realizado anteriormente para que las empresas tengan una referencia.
+                                </p>
+                                <a href="#about" class="btn-get-started scrollto">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+    </section> -->
+    <div class="home-banner">
+        <div class="buscador-home">
+            <form #filtroBusquedaHomeForm="ngForm" class="buscador-home-form" >
+                <div class="buscador-home-titulo">Descubre y encuentra al músico para tu evento, o la oferta para triunfar</div>
+                <!--<div class="buscador-home-tipo-busqueda">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-basico btn-group-basico active">
+                            <input type="radio" name="searchType" autocomplete="off" checked> Ofertas <i class="fa fa-list-ul" aria-hidden="true"></i>
+                        </label>
+                        <label class="btn btn-basico btn-group-basico">
+                            <input type="radio" name="searchType" autocomplete="off"> Artistas <i class="fa fa-users" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                </div>-->
+                <div class="buscador-home-localidades">
+                    <ng-select [items]="localidadesObs | async"
+                        [closeOnSelect]="true"
+                        [clearSearchOnAdd]="true"
+                        [clearOnBackspace]="false"
+                        [addTag]="false"
+                        [multiple]="true"
+                        [hideSelected]="false"
+                        [minTermLength]="2"
+                        [loading]="localidadesLoading"
+                        typeToSearchText="Introduce 2 o más carácteres"
+                        [typeahead]="localidadesInput"
+                        [(ngModel)]="_buscadorService.filtros.localidades"
+                        name="localidad"
+                        placeholder="Introduce una localidad">
+                    </ng-select>
+                </div>
+                <button class="btn-search btn-search-ofertas" (click)="buscar('ofertas')">Ofertas <img src="assets/images/ofertas.png" alt=""></button>
+                <button class="btn-search btn-search-artistas" (click)="buscar('artistas')">Artistas <img src="assets/images/banda_col.png" alt=""></button>
+            
+            </form>
+        </div>
+    </div>
+    <div class="radio-banner">
+        <div class="radio-banner-main">
+            <div class="radio-banner-text">
+                Ya está disponible la radio con la mejor música de nuestros artistas
+            </div>
+            <a class="btn-radio" [routerLink]="['/radio']" target="_blank">Radio <i class="fa fa-angle-right fa-2" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <main id="main">
+        <section id="about">
+            <div class="container">
+                <br><br><br>
+
+                <header class="section-header">
+                    <h3>Ofertas recientes</h3>
+                </header>
+                <div class="row ofertas-container">
+                    <div class="col-sm-12 col-md-6 col-lg-4 wow fadeInUp oferta-tarjeta-col" *ngFor="let item of ofertasDestacadas;" data-wow-delay="0.1s">
+                        <oferta-card [oferta]="item" [identity]="identity" [artista]="artista"></oferta-card>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- #about -->
+
+        <!--==========================
+      Portfolio Section
+    ============================-->
+        <section id="portfolio">
+            <div class="container">
+                <header class="section-header">
+                    <h3 class="section-title">Nuestros músicos</h3>
+                </header>
+                <div class="row artistas-container">
+                    <div class="col-sm-6 col-md-4 col-lg-3 wow fadeInUp artista-tarjeta-col" data-wow-delay="0.1s" *ngFor="let res of artistasDestacados;">
+                        <artista-card [artista]="res"></artista-card>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- #portfolio -->
+
+
+    </main>

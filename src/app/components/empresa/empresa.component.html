@@ -1,0 +1,258 @@
+<style>
+
+  .btn-lista{
+    margin-left: 10%;
+    border-radius: 4px;
+    padding: 1.5%;
+    color: white;
+    background-color: rgb(90, 199, 90);
+  }
+
+  .btn-lista:hover{
+    transition: 0.3s;
+    background-color: white;
+    color: rgb(19, 177, 19);
+    border-color: rgb(15, 189, 15);
+  }
+
+  .btn-canc{
+    margin-left: 5%;
+    border-radius: 4px;
+    padding: 1.5%;
+    color: white;
+    background-color: rgb(206, 64, 45);
+  }
+
+  .btn-canc:hover{
+    transition: 0.3s;
+    background-color: white;
+    color: rgb(206, 64, 45);
+    border-color: red;
+  }
+</style>
+
+    <br><br>
+    <main id="main">
+
+        <!--==========================
+      About Us Section
+    ============================-->
+        <section id="about">
+            <div class="container empresa-container">
+              
+
+                <h3 *ngIf="!this.empresa.nombre">Bienvenido al perfil de administración de {{this.empresa.email}}</h3>
+                <h3 *ngIf="this.empresa.nombre">Bienvenido al perfil de administración de {{this.empresa.nombre}}</h3>
+                <br>
+                <div class="datos">
+
+                    <div class="imagen-datosemp">
+                        <img class="imagen-datosemp" src="assets/img/hotel1.jpg" alt="">
+                    </div>
+
+                  <div id="content">
+
+                    <h3 class="texto-datosemp"> 
+                      <div *ngIf="this.empresa.ciudad">
+                        <i class="fa fa-map-marker"></i> Alicante<br><br>
+                      </div>
+
+                      <div *ngIf="this.empresa.estilo">
+                        <i class="fa fa-music"> </i>{{this.empresa.estilo}}<br><br>
+                      </div>
+                      <div *ngIf="this.empresa.email">
+                        Email: {{this.empresa.email}}
+                      </div>
+                        
+                    </h3>
+                  </div>
+
+                </div>
+
+                <br><br>
+
+<div class="container">
+    <div class="boton-oferta1">
+        <button class="btn-basico btn-tarjeta" data-toggle="modal" data-target="#nuevaOferta">Añadir oferta</button>
+    </div>
+    <h1>Mis ofertas</h1>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tabla1" class="table table-hover" cellspacing="0"  >
+      <thead>
+        <tr>
+          <th></th>
+          <th>Titulo</th>
+          <th>Fecha evento</th>
+          <th>Inscripciones</th>
+          <th>Estado</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ofertas; let i = index">
+          <td *ngIf="item.aprobada== true"><i class="fa fa-eye"></i></td>
+          <td *ngIf="item.aprobada==false || !item.aprobada"> <i class="fa fa-eye-slash"></i></td>
+          <td>{{item.titulo}}</td>
+          <td>{{item.fechaEvento | date:'d/M/yyyy'}}</td>
+          <td>{{item.solicitantes.length+item.preseleccionados.length+item.descartados.length}}</td>
+          <td>{{item.estado2}}</td>
+          <td><button class="btn-basico btn-tarjeta" (click)="detalleOferta(item._id)"><i class="fa fa-cog"></i> Gestionar</button></td>
+          <td><button class="btn-peligro btn-tarjeta" data-toggle="modal" data-target="#modalEliminar" (click)="preliminar(item._id,i)" ><i class="fa fa-trash"></i> Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+            </div>
+        </section>
+        <!-- #about -->
+
+    </main>
+
+
+                <!-- Modal -->
+                <div class="modal fade nueva-oferta" id="nuevaOferta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">¡Crea tu nueva oferta!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="nueva-oferta" class="form-container" #nuevaofertaForm="ngForm" (ngSubmit)="registraOferta()">
+                              <div class="row">
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_titulo"><img src="assets/images/titulo_oferta_icon.png" alt="Titulo de la oferta" class="filtro-icon"> Título</label>
+                                    <input autofocus type="text" id="oferta_titulo" required #titulo="ngModel" name="titulo" placeholder="Ej: Guitarrista en Alicante" [(ngModel)]="nuevaOferta.titulo" class="form-control" id="titulo" >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="form-group">
+                                    <label for="oferta_descripcion">Descripción</label>
+                                    <textarea #descripcion="ngModel" id="oferta_descripcion" name="descripcion" placeholder="Ej: Se busca guitarrista en la zona de la provincia de Alicante..." [(ngModel)]="nuevaOferta.descripcion" class="form-control" required></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_ciudad"><img src="assets/images/signs.png" alt="Lugar" class="filtro-icon"> Localidad</label>
+                                    <ng-select id="oferta_ciudad" [items]="localidadesObs | async"
+                                      [addTag]="false"
+                                      [multiple]="false"
+                                      [hideSelected]="true"
+                                      [minTermLength]="2"
+                                      [loading]="localidadesLoading"
+                                      typeToSearchText="Introduce 2 o más carácteres"
+                                      [typeahead]="localidadesInput"
+                                      [(ngModel)]="nuevaOferta.ciudad"
+                                      name="ciudad"
+                                      placeholder="Ej: Alicante, Valencia, etc"
+                                      class="select-oscuro">
+                                    </ng-select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_estilo"><img src="assets/images/heavy-metal.png" alt="Estilo musical" class="filtro-icon"> Estilos musicales</label>
+                                    <ng-select id="oferta_estilo" [items]="estilosMusicalesObs | async"
+                                      [addTag]="false"
+                                      [multiple]="true"
+                                      [hideSelected]="true"
+                                      [minTermLength]="2"
+                                      [loading]="estilosMusicalesLoading"
+                                      typeToSearchText="Introduce 2 o más carácteres"
+                                      [typeahead]="estilosMusicalesInput"
+                                      [(ngModel)]="nuevaOferta.estilo"
+                                      name="estilo"
+                                      placeholder="Ej: Pop, Rock, etc"
+                                      class="select-oscuro">
+                                    </ng-select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_instrumentos"><img src="assets/images/instrumento_icon.png" alt="Instrumentos" class="filtro-icon"> Instrumentos</label>
+                                    <ng-select id="oferta_instrumentos" [items]="instrumentosObs | async"
+                                      [addTag]="false"
+                                      [multiple]="true"
+                                      [hideSelected]="true"
+                                      [minTermLength]="2"
+                                      [loading]="instrumentosLoading"
+                                      typeToSearchText="Introduce 2 o más carácteres"
+                                      [typeahead]="instrumentosInput"
+                                      [(ngModel)]="nuevaOferta.instrumentos"
+                                      name="instrumentos"
+                                      placeholder="Ej: Guitarra, Piano, etc"
+                                      class="select-oscuro">
+                                    </ng-select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_sueldo"><img src="assets/images/price-tag.png" alt="Sueldo" class="oferta-icon"> Sueldo</label>
+                                    <input type="number" id="oferta_sueldo" #sueldo="ngModel" name="sueldo" placeholder="EJ: 100" [(ngModel)]="nuevaOferta.sueldo" class="form-control" id="sueldo" required>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_fecha"><img src="assets/images/calendar.png" alt="Día" class="oferta-icon"> Fecha del Evento</label>
+                                    <input type="date" id="oferta_fecha" #fechaEvento="ngModel" name="fechaEvento" [(ngModel)]="nuevaOferta.fechaEvento" class="form-control" id="fechaEvento" required>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                    <label for="oferta_vencimiento"><img src="assets/images/calendar.png" alt="Día" class="oferta-icon"> Fecha de vecimiento de la oferta</label>
+                                    <input type="date" id="oferta_vencimiento" #fechaEvento="ngModel" name="fechaVencimiento" [(ngModel)]="nuevaOferta.fechaFin" class="form-control" id="fechaFin" required>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="crear-oferta-btn">
+                                    <button type="submit" class="btn btn-basico btn-block" (click)="recargar()">Crear oferta</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-peligro" data-dismiss="modal"(click)="recargar()" >Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="modal" tabindex="-1" role="dialog" id="modalEliminar">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Eliminar oferta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>¿Deseas eliminar esta oferta?</p>
+                        <p>Si eliminas una oferta perderas todos sus datos.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+                        <button type="button" (click)="eliminar()" class="btn btn-secondary" data-dismiss="modal">Eliminar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>

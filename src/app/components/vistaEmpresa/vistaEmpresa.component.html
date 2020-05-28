@@ -1,0 +1,235 @@
+  
+
+<main id="main">
+    <!--==========================
+  About Us Section
+============================-->
+    <section id="about">
+        <div class="container empresa-container">
+            <a href="javascript:history.back()" class="btn-basico" ><i class="fa fa-arrow-left"></i> Volver Atrás</a>
+            
+            <table class="tabla1">
+                <tr>
+                    <td class="first1">
+           
+                        <div class="imagen1">  
+                            <img  class="imagen-vistaempresa" src="assets/img/hotel1.jpg" alt="">
+                                
+                        </div>
+                        <br>
+            <div class="text-vistaempresa">
+                
+                <h3 class="texto4"> 
+                    <i class="fa fa-map-marker"></i> {{empresa.ciudad}}<br><br>
+                
+                    
+                    
+                    <i class="fa fa-calendar"> </i> Creado en 1978<br><br>
+                    
+                    <div *ngIf="empresa.estilos"><i class="fa fa-music"> </i>{{empresa.estilos}}<br><br></div>
+                    
+                    Valoracion:           <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                    <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                    <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                    <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                    <i class='fa fa-star'></i> (112)
+                    <!--<i class="fa fa-user"> </i> Músico solista<hr>
+                    Otros: <br>
+                    - escenario
+                    <br>-->
+                </h3>
+                    <!--<h5 class="cuenta-atras"> <button type="button" class="inscribirme2" data-toggle="modal" data-target="#myModal"> Inscribirme
+                    </button></h5>-->
+
+                    
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </td>
+        <td class="second1">
+      
+        <div class="empresa-texto">
+            
+            <h3 class="nombre-empresa">PUB IRISH</h3><br><br>
+            <h3>Descripción:</h3>
+            <!--(click)=verEmpresa(nombre-empresa)-->
+            <h4 class="emp-text">Somos un local creado en 1978 localizado en Valencia que cuenta un gran número de clientes. Nuestra especialidad es la cerveza, de la cual contamos con una gran variedad. Todos los fin de semana organizamos conciertos de diferentes estilos
+                musicales para que nuestros clientes disfruten de buen ambiente para tomar algo.</h4>
+            <br>
+        </div>
+        <h3 class="txt-empresa">Eventos realizados:</h3>
+        <div class="row about-cols">
+
+            <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/bar1.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-speedometer-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico" (click)="verOferta(0);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/hotel1.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-list-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico" (click)="verOferta(1);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="about-col">
+                    <div class="img">
+                        <img src="assets/img/hotel3.jpg" alt="" class="img-fluid">
+                        <!--<div class="icon"><i class="ion-ios-eye-outline"></i></div>-->
+                    </div>
+                    <h2 class="title"><a href="#">Buscamos músico de Pop</a></h2>
+                    <p class="text">
+                          9/04/2020 <br>
+                       Pub Irish <br>
+                      <strong> 500€</strong><br>
+                      Estilos buscados: Pop <br>
+                      Localidad: Alicante <br><br>
+                      <button class="btn-tarjeta btn-secundario">Inscribirme <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      <button class="btn-tarjeta btn-basico" (click)="verOferta(2);">Más información <i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </td>
+</tr>
+</table>
+        </div>
+        
+    </section>
+    <section id="portfolio" class="section-bg">
+        <div class="container">
+            <table class="tabla1">
+                <tr>
+                    <td class="first2">
+                        <br><br><br><br>
+                        <div class="text-vistaempresa" style="visibility: hidden;">
+                
+                            <h3 class="texto3"> <i class="fa fa-map-marker"></i> Alicante
+                                <hr>
+                                     Valoracion:           <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                                <i class='fa fa-star'></i> (112)
+                                
+                                <hr>
+                                
+                                <i class="fa fa-calendar"> </i> Creado en 1978
+                                <hr>
+                                <i class="fa fa-music"> </i> Pop, Rock
+                                <hr>
+                                <!--<i class="fa fa-user"> </i> Músico solista<hr>
+                                Otros: <br>
+                                - escenario
+                                <br>-->
+                            </h3>
+                                <!--<h5 class="cuenta-atras"> <button type="button" class="inscribirme2" data-toggle="modal" data-target="#myModal"> Inscribirme
+                                </button></h5>-->
+            
+                                
+                        </div>
+                    </td>
+                    <td class="second2">
+           <h3 class="txt-empresa">Artistas contratados anteriormente:</h3>
+            <br>
+            <div class="row portfolio-container">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="assets/img/bar1.jpg" class="img-fluid" alt="">
+                            <a href="assets/img/bar1.jpg" data-lightbox="portfolio" data-title="Mario Gómez" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4><a href="#">Mario Gómez</a></h4>
+                            <p>Valoración:
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star'></i> (112)</p>
+                            <button class="btn-tarjeta btn-basico">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="assets/img/hotel1.jpg" class="img-fluid" alt="">
+                            <a href="assets/img/hotel1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Maria Navarro" title="Preview"><i class="ion ion-eye"></i></a>
+                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4><a href="#">Maria Navarro</a></h4>
+                            <p>Valoración:
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star'></i> (112)</p>
+                            <button class="btn-tarjeta btn-basico">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="assets/img/hotel3.jpg" class="img-fluid" alt="">
+                            <a href="assets/img/hotel3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Estela Martinez" title="Preview"><i class="ion ion-eye"></i></a>
+                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4><a href="#">Estela Martinez</a></h4>
+                            <p>Valoración:
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star' style='color: rgb(235, 235, 25) ;'></i>
+                                <i class='fa fa-star'></i> (112)</p>
+                            <button class="btn-tarjeta btn-basico">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+                </div>
+            
+                </section>
+    <!-- #about -->
+    </main>

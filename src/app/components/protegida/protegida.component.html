@@ -1,0 +1,80 @@
+<style>
+
+  h1{
+    font-family: 'Cinzel', serif;
+    font-size: 3em;
+    color: rgb(235, 154, 49);
+  }
+  p{
+  font-family: 'Gelasio', serif;
+  font-size: 1.1em;
+}
+#musico{
+  font-family: 'Cinzel', serif;
+  background-color:darkorange;
+  color: white;
+}
+#musico:hover{
+  font-family: 'Cinzel', serif;
+  background-color:rgb(192, 111, 11);
+  color: white;
+}
+#emp{
+  color: darkcyan;
+  font-size: 1.2em;
+}
+#art{
+  color: rgb(235, 154, 49);
+  font-size: 1.2em;
+}
+
+</style>
+
+
+
+<hr>
+<div class="w3-center" *ngIf="auth.userProfile$ | async as profile" >
+  <h1 style="margin-top:0.5em">Perfil de usuario</h1>
+  <hr>
+
+<p>Nombre: {{profile.name}}</p>
+<p>Usuario: {{profile.nickname}}</p>
+<p>Email: {{profile.email}}</p>
+<hr>
+<p>Tipo de perfil:</p>
+
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info" style="width: 10%; margin-right: 2px;" data-toggle="modal" data-target="#myModal">  <i class="fa fa-black-tie"> Empresa</i>
+</button>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>Has puesto tu perfil en modo: <span id="emp">EMPRESA</span></p>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div></div></div></div>
+        <!-- Trigger the modal with a button -->
+<button type="button"  id="musico" class="btn" data-toggle="modal" data-target="#myModal2" style="width: 10%;">  <i class="fa fa-music"> Artista</i>
+</button>
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <p>Has puesto tu perfil en modo: <span id="art">ARTISTA</span></p>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div></div></div></div>
+<p>Imagen de perfil:</p>
+<img src="{{profile.picture}}" style="height: 20em;">
+</div>

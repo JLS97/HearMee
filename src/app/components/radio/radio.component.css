@@ -1,0 +1,85 @@
+#canvas{
+    position: absolute;
+    left: 250px;
+    top: 0px;
+}
+.artista-tarjeta-container{
+    width: 275px;
+    position: absolute;
+    left: 20px;
+    top: 70px;
+}
+.artista-tarjeta-top{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    background: #181a1c;
+    text-align: center;
+    padding: 10px 20px;
+}
+.artista-tarjeta {
+    background: #fff;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 0;
+    height: 100%;
+}
+.artista-imagen {
+    background: #090909;
+    background-image: url("src/assets/images/musical.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 0px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.artista-imagen img {
+    border-radius: 115px;
+    width: 150px;
+    height: 150px;
+    margin: 20px 0 14px 0;
+    box-shadow: 0 0 10px #181a1c;
+    background: #c9e3ff;
+}
+.artista-nombre {
+    padding: 0 20px 12px 20px;
+    text-align: center;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #090909;
+    color: #fff;
+    font-weight: 500;
+    border-bottom: 4px solid #00d9a7;
+}
+.artista-info {
+    padding: 20px 30px 10px 30px;
+}
+.artista-info-item {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.artista-icon {
+    width: 24px;
+    margin-right: 10px;
+}
+.artista-botones {
+    padding: 10px 0px;
+    bottom: 0;
+    width: 100%;
+    margin: 0 -15px;
+}
+.audio-container{
+    position: absolute;
+    top: 597px;
+    left: 6px;
+}
+.button-siguiente-container{
+    position: absolute;
+    right: 20px;
+    top: 90px;
+}

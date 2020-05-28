@@ -1,0 +1,285 @@
+
+
+      <br><br>
+      <main id="main">
+
+          <!--==========================
+        About Us Section
+      ============================-->
+          <section id="about">
+              <div class="container">
+
+                  <h3>Bienvenido a tu perfil de músico, {{this.usuario.nombre}}</h3>
+
+
+                  <!--<div class="right-container container">
+                    <div class="calendar-month block">--> <!-- CALENDAR MONTH (RIGHT-CONTAINER) -->
+                      <!--<div class="arrow-btn-container">
+                          <a class="arrow-btn left" href="#202"><span class="icon fontawesome-angle-left"></span></a>
+                          <h2 class="titular">ABRIL 2020</h2>
+                          <a class="arrow-btn right" href="#203"><span class="icon fontawesome-angle-right"></span></a>
+                      </div>
+                      <table class="calendar">
+                          <thead class="days-week">
+                              <tr>
+
+                                  <th>L</th>
+                                  <th>M</th>
+                                  <th>X</th>
+                                  <th>J</th>
+                                  <th>V</th>
+                                  <th>S</th>
+                                  <th>D</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+
+                                  <td></td>
+                                  <td></td>
+                                  <td><a class="scnd-font-color" href="#100">1</a></td>
+                                  <td><a class="scnd-font-color" href="#101">2</a></td>
+                                  <td><a class="scnd-font-color" href="#102">3</a></td>
+                                  <td><a class="scnd-font-color" href="#103">4</a></td>
+                                  <td><a class="scnd-font-color" href="#104">5</a></td>
+                              </tr>
+                              <tr>
+
+                                  <td><a class="scnd-font-color" href="#105">6</a></td>
+                                  <td><a class="scnd-font-color" href="#106">7</a></td>
+                                  <td><a class="scnd-font-color" href="#107">8</a></td>
+                                  <td><a class="scnd-font-color" href="#115">9</a></td>
+                                  <td><a class="scnd-font-color" href="#109">10</a></td>
+                                  <td><a class="scnd-font-color" href="#115">11</a></td>
+                                  <td><a class="scnd-font-color" href="#111">12</a></td>
+                              </tr>
+                              <tr>
+
+                                  <td><a class="scnd-font-color" href="#112">13</a></td>
+                                  <td><a class="scnd-font-color" href="#113">14</a></td>
+                                  <td><a class="scnd-font-color" href="#114">15</a></td>
+                                  <td><a class="scnd-font-color" href="#115">16</a></td>
+                                  <td><a class="scnd-font-color" href="#115">17</a></td>
+                                  <td><a class="scnd-font-color" href="#117">18</a></td>
+                                  <td><a class="scnd-font-color" href="#115">19</a></td>
+                              </tr>
+                              <tr>
+
+                                  <td><a class="scnd-font-color" href="#119">20</a></td>
+                                  <td><a class="scnd-font-color" href="#120">21</a></td>
+                                  <td><a class="scnd-font-color" href="#121">22</a></td>
+                                  <td><a class="scnd-font-color" href="#122">23</a></td>
+                                  <td><a class="scnd-font-color" href="#123">24</a></td>
+                                  <td><a class="scnd-font-color" href="#124">25</a></td>
+                                  <td><a class="scnd-font-color" href="#124">26</a></td>
+                              </tr>
+                              <tr>
+
+                                  <td><a href="#126">27</a></td>
+                                  <td><a href="#127">28</a></td>
+                                  <td><a href="#128">29</a></td>
+                                  <td><a href="#128">30</a></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                      <div class="circulos">
+                        <h6 class="cr1"><div class="circulo-0"></div> Evento abierto </h6>
+                      <h6 class="cr2"><div class="circulo-1"></div> Evento cerrado en busca de candidatos</h6>
+                      <h6 class="cr3"><div class="circulo-2"></div> Evento cerrado esperando respuesta</h6>
+                      <h6 class="cr4"><div class="circulo-3"></div> Evento cerrado con contrato</h6>
+                    </div>
+                      </div>
+
+
+                      <div class="datos">
+                          <div class="boton-oferta1">
+                              <button class="boton-oferta" data-toggle="modal" data-target="#nuevaOferta">Añadir oferta</button>
+                          </div>
+                          <div class="imagen-datosemp">
+                              <img class="imagen-datosemp" src="assets/img/hotel1.jpg" alt="">
+                          </div>
+
+                          <label for="show">
+                              <span>Mostrar mis datos</span>
+                        </label>
+                        <input type="radio" id="show" name="group">
+
+                        <input type="radio" id="hide" name="group">
+
+                        <div id="content">
+                            <h3 class="texto-datosemp"> <i class="fa fa-map-marker"></i> {{this.empresa.ciudad}}<br><br>
+
+
+
+                          <i class="fa fa-calendar"> </i> Creado en 1978<br><br>
+
+                          <i class="fa fa-music"> </i>{{this.empresa.estilo}}<br><br>
+                              Email: {{this.empresa.email}}
+                      </h3>
+                            <br>
+                          <label for="hide">
+                              <span> <strong>Ocultar</strong></span>
+                        </label>
+                        </div>
+
+                      </div>
+
+
+                  </div>--> <!-- end calendar-month block -->
+
+                  <div class="datos">
+
+                      <div class="imagen-datosemp">
+                          <img class="imagen-datosemp" src="assets/images/band1.jpg" alt="">
+                      </div>
+
+                    <div id="content">
+                        <h3 class="texto-datosemp"> <i class="fa fa-map-marker"></i> - {{this.usuario.ciudad}}<br><br>
+
+
+
+                      <i class="fa fa-calendar"> </i> 24 años<br><br>
+
+                      <i class="fa fa-music"> </i> - {{this.usuario.estilo}}<br><br>
+                          Email: {{this.usuario.email}}
+                      </h3>
+                    </div>
+
+                  </div>
+                 <!-- <button class="btn btn-warning" data-toggle="modal" data-target="#rellenarDatos">Editar datos</button>-->
+                  <!--<button class="btn btn-warning" data-toggle="modal" data-target="#rellenarDatos">Rellenar datos</button>-->
+
+                  <!--<input id="activar" name="activar" type="checkbox">-->
+                  <!--<button id="btn_ver" class="button" on="tap:div_contenido.show">Ver Contenido</button>
+                  <button id="btn_ocultar" class="button" on="tap:div_contenido.hide">Ocultar Contenido</button>
+
+                  <br><br><div id="div_contenido" hidden>Contenido</div>-->
+
+                 <!-- <header class="sec-header" *ngIf="ofertas">
+                      <h3>Mis Ofertas</h3>
+                  </header>
+
+                  <div class="row about-cols">
+
+                      <div class="col-md-4 wow fadeInUp" *ngFor="let item of ofertas">
+                          <div class="about-col">
+                              <div class="img">
+                                  <img src="assets/img/bar1.jpg" alt="" class="img-fluid">-->
+                                  <!--<div class="icon"><i class="ion-ios-speedometer-outline"></i></div>-->
+                              <!--</div>
+                              <h2 class="title">{{item.titulo}}</h2>
+                              <h6 class="texto">
+                                 {{ item.fechaEvento }}<br><br></h6>
+
+                                <h5 class="candi"> {{item.ciudad}} <br></h5>
+                              <button class="ver-empresa" (click)="detalleOferta(item._id)">Gestionar</button>
+                          </div>
+                      </div>
+
+                      <div *ngIf="!ofertas">
+                          <h2>No tienes ninguna oferta.</h2>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                      </div>
+
+                  </div>-->
+                  <br><br>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link miPerfil" routerLinkActive="active" routerLink="/perfil">Perfil</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link misOfertas" routerLinkActive="active" routerLink="/perfil/mis-ofertas">Mis ofertas <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link misCanciones" routerLinkActive="active" routerLink="/perfil/mis-canciones">Mis canciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link misEnlaces" routerLinkActive="active" routerLink="/perfil/mis-enlaces">Mis enlaces</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+
+    <!--
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tabla" class="table table-hover" cellspacing="0"  >
+        <thead>
+          <tr>
+            <th>Titulo canción</th>
+            <th>Fecha de subida</th>
+            <th>Álbum</th>
+            <th>Estilo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ofertas">
+            <td>{{item.titulo}}</td>
+            <td>{{item.fechaEvento}}</td>
+            <td>{{item.estado}}</td>
+            <td>{{item.sueldo}}<button class="ver-empresa" (click)="verOferta(item._id)">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="eliminar(item._id)" >Ocultar canción</button></td>
+          </tr>
+        </tbody>
+      </table>
+-->
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tabla-canciones" class="table table-hover" cellspacing="0"  >
+  <thead>
+    <tr>
+      <th>Titulo canción</th>
+      <th>Fecha de subida</th>
+      <th>Álbum</th>
+      <th>Estilo</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cuando éramos</td>
+      <td>20/01/2020</td>
+      <td>Dulce ironía</td>
+      <td>Rock, Pop </td>
+      <td><button class="btn-basico btn-tarjeta" ><i class="fa fa-pencil-square-o"></i> Editar</button></td>
+      <td><button class="btn-peligro btn-tarjeta"><i class="fa fa-eye-slash"></i> Ocultar canción</button></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+              </div>
+          </section>
+          <!-- #about -->
+
+      </main>
+
+
+

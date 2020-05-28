@@ -1,0 +1,282 @@
+
+
+
+
+
+<header id="header">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-6">
+          <a [routerLink]="['/home']" class="scrollto"><img src="assets/images/HearMeeF1Invertido.png" alt="Hearmee" class="img logo-hearmee-navbar"></a>
+        </div>
+        <!--<div class="col-xs-12 col-sm-4 col-md-6">
+          <form class="form-inline" #busquedaForm="ngForm" (ngSubmit)="buscar()" id="buscador-form">
+              <div class="form-container">
+                <ng-select [items]="localidadesObs | async"
+                  [closeOnSelect]="true"
+                  [clearSearchOnAdd]="true"
+                  [clearOnBackspace]="false"
+                  [addTag]="false"
+                  [multiple]="true"
+                  [hideSelected]="false"
+                  [minTermLength]="2"
+                  [loading]="localidadesLoading"
+                  typeToSearchText="Introduce 2 o más carácteres"
+                  [typeahead]="localidadesInput"
+                  [(ngModel)]="_buscadorService.filtros.localidades"
+                  name="localidad"
+                  placeholder="Introduce una localidad"
+                  id="buscador-navbar">
+              </ng-select>
+                <button class="btn btn-outline-success search-icon" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+          </form>
+        </div>-->
+        <div class="col-6">
+          <button class="inicio-sesion btn-basico" data-toggle="modal" data-target="#myModal2" *ngIf="!identity && !identityEmpresa"><span class="navbar-buttons-text">Iniciar sesión</span> <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+          <button class="inicio-sesion btn-basico" href="./logout" (click)="logout()"*ngIf="identity || identityEmpresa"><span class="navbar-buttons-text">Salir</span> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+          <button class="inicio-sesion btn-basico" (click)="perfil()" *ngIf="identity" ><span class="navbar-buttons-text">Perfil</span> <i class="fa fa-user" aria-hidden="true"></i></button>
+          <button class="inicio-sesion btn-basico" (click)="perfil()" *ngIf="identityEmpresa"  ><span class="navbar-buttons-text">Perfil</span> <i class="fa fa-user" aria-hidden="true"></i></button>
+          <label  class="inicio-sesion btn-basico search-toggle"  for="buscador-navbar-toggle"><i class="fa fa-search" aria-hidden="true"></i></label>
+        </div>
+        
+      </div>
+      
+
+
+<!-- #header -->
+
+      <!-- #nav-menu-container -->
+
+      <!--<button class="inicio-sesion btn-basico">Iniciar sesión <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+      --><div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content" *ngIf="registro==false">
+              <div class="modal-header">
+                <!--<h4 class="modal-title" style="margin-left: 2%;">Inicia sesión como Artista</h4>-->
+                <div class="navegacion">
+                  <ul  class="nav nav-tabs" id="myTab" role="tablist">
+                    <li  class="nav-item"><a  aria-controls="home" aria-selected="true" class="nav-link active navbar-text-dark" data-toggle="tab" id="home-tab" role="tab">¿Buscas trabajo?</a></li>
+                    <li  class="nav-item"><a  aria-controls="profile" aria-selected="false" class="nav-link navbar-text-dark" data-toggle="tab" id="profile-tab" role="tab">¿Ofreces trabajo?</a></li>
+                  </ul>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                
+                      <form class="form-container" #loginForm="ngForm" (ngSubmit)="login()" >
+                        
+                        <div class="form-group">
+                          <label></label>
+                          
+                          <input autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="artista.email" class="form-control" id="email" required>
+                        </div>
+                        <div>
+                          <label></label>
+                          <input type="password" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="artista.password" class="form-control" id="password" required>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <br>
+                            <input type="checkbox" > Recuerdame
+                          </label>
+                        </div>
+                        <br>
+                        <h5 style="color:red; margin-left: 27%;" *ngIf="incorrecto==true">Credenciales incorrectos</h5>
+                        <br/>
+                        
+                        <button type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 3%;">Entrar como artista</button>
+                        <h5>Entra con google:</h5>
+                <!--<button (click)="auth.login()" class="btn btn-dark btn-block1" style="width: 30px; height: 30px; border-radius: 50px; text-align: center;"><i class="fa fa-google"></i></button>-->
+                <button (click)="auth.login()" class="btn-peligro btn-tarjeta"><i class="fa fa-google"></i> Inicia sesión con <b>Google</b></button>
+                        <h6>¿Aún no tienes cuenta? <a href="#" (click)="registroOntrue()">Registrate</a></h6>
+                      </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        
+            <div class="modal-content" *ngIf="registro==true">
+              <div class="modal-header">
+                <!--<h4 class="modal-title" style="margin-left: 2%;">Registrate como Artista</h4>-->
+                <div class="navegacion">
+                  <ul  class="nav nav-tabs" id="myTab" role="tablist">
+                    <li  class="nav-item"><a   aria-controls="home" aria-selected="true" class="nav-link active navbar-text-dark" data-toggle="tab" id="home-tab" role="tab">¿Buscas trabajo?</a></li>
+                    <li  class="nav-item"><a   aria-controls="profile" aria-selected="false" class="nav-link navbar-text-dark" data-toggle="tab" id="profile-tab" role="tab">¿Ofreces trabajo?</a></li>
+                  </ul>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                      <form class="form-container" #loginForm="ngForm" (ngSubmit)="registrar()" >
+                        <div class="form-group">
+                          <label></label>
+                          <input autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="artista_registrar.email" class="form-control" id="email" required>
+                        </div>
+                        <div>
+                          <label></label>
+                          <input type="text" #nombre="ngModel" name="nombre" placeholder="Nombre" [(ngModel)]="artista_registrar.nombre" class="form-control" id="nombre" required>
+                        </div>
+                        <div>
+                          <label></label>
+                          <input type="password" minlength="8" maxlength="16" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="artista_registrar.password" class="form-control" id="password" required>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <br>
+                            <input type="checkbox" > Acepto los <a href="#" routerLink="/terminos">terminos y condiciones.</a>
+                          </label>
+                        </div>
+                        <br/>
+                        <h5 style="color:red; margin-left: 35%; margin-bottom: 5%;" *ngIf="incorrectoRegistrar==true">Error al registrar</h5>
+                        <button type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 3%; ">Registrar como artista</button>
+                        <button (click)="auth.login()" class="btn-peligro btn-tarjeta"><i class="fa fa-google"></i> Registrate con <b>Google</b></button>
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <h6>¿Ya tienes una cuenta? <a href="#" (click)="registroOntrue()">Inicia sesión</a></h6>
+                        <!--<button type="button" class="btn btn-primary btn-block" style="margin-top: 20px;" (click)="registroOntrue()">Inicia sesión.</button>-->
+                      </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>  
+        </div>
+      </div>
+  </div>
+</header>
+<!-- #header -->
+
+<input type="checkbox" style="display: none;" id="buscador-navbar-toggle">
+<div class="row navbar-busqueda">
+  <form class="form-inline" #busquedaForm="ngForm" (ngSubmit)="buscar()" id="buscador-form">
+      <div class="form-container">
+        <ng-select [items]="localidadesObs | async"
+          [addTag]="false"
+          [multiple]="true"
+          [hideSelected]="false"
+          [minTermLength]="2"
+          [loading]="localidadesLoading"
+          typeToSearchText="Introduce 2 o más carácteres"
+          [typeahead]="localidadesInput"
+          [(ngModel)]="_buscadorService.filtros.localidades"
+          name="localidad"
+          placeholder="Busca por localidad"
+          id="buscador-navbar"
+          class="buscador-navbar">
+      </ng-select>
+        <button class="btn search-icon" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+  </form>
+</div>
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="registro==false">
+      <div class="modal-header">
+        <!--<h4 class="modal-title" style="margin-left: 2%;" *ngIf="emp==false">Inicia sesión como: Artista</h4>
+        <h4 class="modal-title" style="margin-left: 2%;" *ngIf="emp==true">Inicia sesión como: Empresa</h4>-->
+        <div class="navegacion">
+          <ul  class="nav nav-tabs" id="myTab" role="tablist">
+            <li  class="nav-item"><a (click)="empresaOntrue(false)" aria-controls="home" aria-selected="true" class="nav-link active navbar-text-dark" data-toggle="tab" id="home-tab" role="tab">¿Buscas trabajo?</a></li>
+            <li  class="nav-item"><a (click)="empresaOntrue(true)" aria-controls="profile" aria-selected="false" class="nav-link navbar-text-dark" data-toggle="tab" id="profile-tab" role="tab">¿Ofreces trabajo?</a></li>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+              <form class="form-container" #loginForm="ngForm" (ngSubmit)="log()">
+                <div class="form-group">
+                  <h4 *ngIf="emp == false" >Inicia sesión como artista</h4>
+                  <h4 *ngIf="emp == true" >Inicia sesión como ofertante</h4>
+
+                  <label></label>
+                  <input *ngIf="emp == false" autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="artista.email" class="form-control" id="email" required>
+                  <input *ngIf="emp == true" autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="empresa.email" class="form-control" id="email" required>
+                </div>
+                <div>
+                  <label></label>
+                  <input *ngIf="emp == false" type="password" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="artista.password" class="form-control" id="password" required>
+                  <input *ngIf="emp == true" type="password" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="empresa.password" class="form-control" id="password" required>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <br>
+                    <input type="checkbox" > Rercuerdame
+                  </label>
+                </div>
+                <h5 style="color:red; margin-left: 27%;" *ngIf="incorrecto==true">Credenciales incorrectos</h5>
+              <button *ngIf="emp == false" type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 40px;">Entrar como artista</button>
+              <button *ngIf="emp == true" type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 40px;">Entrar como ofertante</button>
+                <!--<h5>Entra con google:</h5>-->
+                <!--<button (click)="auth.login()" class="btn btn-dark btn-block1" style="width: 30px; height: 30px; border-radius: 50px; text-align: center;"><i class="fa fa-google"></i></button>-->
+                <button (click)="auth.login()" class="btn-peligro btn-tarjeta"><i class="fa fa-google"></i> Inicia sesión con <b>Google</b></button>
+                <!--<button *ngIf="emp == false" (click)="empresaOntrue()" class="btn btn-success" >Login como empresa</button>
+                <button *ngIf="emp == true" (click)="empresaOntrue()" class="btn btn-success" >Login como Artista</button>-->
+                <br>
+                <h6>¿Aún no tienes cuenta? <a href="#" (click)="registroOntrue()" style="font-weight: bold;">Registrate</a></h6>
+                <!--<button type="button" class="btn btn-primary btn-block" style="margin-top: 20px;"(click)="registroOntrue()" >Registrate</button>-->
+              </form>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+      </div>
+    </div>
+
+    <div class="modal-content" *ngIf="registro==true">
+      <div class="modal-header">
+        <!--<h4 class="modal-title" style="margin-left: 2%;" *ngIf="emp==false">Registrate como: Artista</h4>
+        <h4 class="modal-title" style="margin-left: 2%;" *ngIf="emp==true">Registrate como: empresa</h4>-->
+        <div class="navegacion">
+          <ul  class="nav nav-tabs" id="myTab" role="tablist">
+            <li  class="nav-item"><a (click)="empresaOntrue(false)" aria-controls="home" aria-selected="true" class="nav-link active navbar-text-dark" data-toggle="tab" id="home-tab" role="tab">¿Buscas trabajo?</a></li>
+            <li  class="nav-item"><a (click)="empresaOntrue(true)"  aria-controls="profile" aria-selected="false" class="nav-link navbar-text-dark" data-toggle="tab" id="profile-tab" role="tab">¿Ofreces trabajo?</a></li>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+              <form class="form-container" #loginForm="ngForm" (ngSubmit)="reg()" >
+                <div class="form-group">
+                  <h4 *ngIf="emp == false" >Regístrate como artista</h4>
+                  <h4 *ngIf="emp == true" >Regístrate como ofertante</h4>
+                  <!--<div class="botones" style="float:none; text-align: center;">
+                  <button *ngIf="emp == false" (click)="empresaOntrue()" class="btn btn-success" style="background-color:rgb(107, 109, 247);" >Registrate como empresa</button>
+                  <button *ngIf="emp == true"  (click)="empresaOntrue()" class="btn btn-success" style="background-color:rgb(248, 179, 89);">Registrate como Artista</button>
+                </div>-->
+                  <label></label>
+                  <input *ngIf="emp == false" autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="artista_registrar.email" class="form-control" id="email" required>
+                  <input *ngIf="emp == true" autofocus type="email" #email="ngModel" name="email" placeholder="Email" [(ngModel)]="empresa_registrar.email" class="form-control" id="email" required>
+                </div>
+                <div>
+                  <label></label>
+                  <input *ngIf="emp == false" type="text" #nombre="ngModel" name="nombre" placeholder="Nombre" [(ngModel)]="artista_registrar.nombre" class="form-control" id="nombre" required>
+                  <input *ngIf="emp == true" type="text" #nombre="ngModel" name="nombre" placeholder="Nombre" [(ngModel)]="empresa_registrar.nombre" class="form-control" id="nombre" required>
+                </div>
+                <div>
+                  <label></label>
+                  <input *ngIf="emp == false" type="password" minlength="8" maxlength="16" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="artista_registrar.password" class="form-control" id="password" required>
+                  <input *ngIf="emp == true" type="password" minlength="8" maxlength="16" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="empresa_registrar.password" class="form-control" id="password" required>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <br>
+                    <input type="checkbox" >Acepto los <a href="#" routerLink="/terminos"> terminos y condiciones.</a>
+                  </label>
+                </div>
+                <br/>
+                <h5 style="color:red; margin-left: 35%; margin-bottom: 5%;" *ngIf="incorrectoRegistrar==true">Error al registrar</h5>
+                <button *ngIf="emp == false" type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 3%;padding: 10px;">Registrar como artista</button>
+                <button *ngIf="emp == true" type="submit" class="btn-basico btn-tarjeta" style="margin-bottom: 3%;padding: 10px;">Registrar como ofertante</button>
+                <!--<button (click)="auth.login()" class="btn btn-dark btn-block" style="margin-bottom: 3%;">Registrate con Google</button>-->
+                <button (click)="auth.login()" class="btn-peligro btn-tarjeta"><i class="fa fa-google"></i> Registrate con <b>Google</b></button>
+                <br>
+                <h6>¿Ya tienes cuenta? <a href="#" (click)="registroOntrue()">Inicia sesión</a></h6>
+              </form>
+    </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+      </div>
+</div>  

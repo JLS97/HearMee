@@ -1,0 +1,32 @@
+/********************** VISTA ARTISTA ***************************/
+.imagen-vistaArtista{
+    float: left;
+    width: 250px;
+    height: 250px;
+    border-radius: 125px;
+    margin-right: 2em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  .texto4{
+    font-size: 20px;
+    color: rgb(80, 79, 79);
+    margin-left: 2em;
+  }
+  .nombre-empresa1{
+    font-weight: bold;
+  }
+  .second1{
+    margin-top: 0em;
+    margin-left: 1em;
+  }
+  .emp-text{
+    font-size: 18px;
+  }
+
+  .artista-container{
+    background: #fff;
+    padding: 20px 40px;
+    margin-top: 60px;
+    box-shadow: 2px 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  }
