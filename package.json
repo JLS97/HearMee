@@ -25,6 +25,7 @@
     "@ng-select/ng-select": "^3.7.3",
     "angular": "^1.7.9",
     "angular-datatables": "^9.0.1",
+    "ansi-colors": "^4.1.1",
     "auth": "0.0.9",
     "bootstrap": "^4.4.1",
     "datatables": "^1.10.18",
@@ -43,7 +44,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.20",
+    "@angular-devkit/build-angular": "^0.1001.2",
     "@angular/cli": "~8.3.20",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
