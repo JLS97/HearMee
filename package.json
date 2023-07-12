@@ -33,7 +33,7 @@
     "datatables.net-dt": "^1.10.20",
     "gl-matrix": "^3.2.1",
     "http": "0.0.0",
-    "izimodal": "^1.5.1",
+    "izimodal": "^1.6.1",
     "jquery": "^3.5.0",
     "ngx-infinite-scroll": "^9.0.0",
     "observable": "^2.1.4",
